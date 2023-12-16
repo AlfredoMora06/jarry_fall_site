@@ -1,13 +1,13 @@
 import React from "react"
 import Box from "@mui/material/Box"
-import { Container, Grid, Typography } from "@mui/material"
+import { Container, Fade, Grid, Typography } from "@mui/material"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
 import { getProfile } from "../../store/features/profileSlice"
 
 
-export default function AlfredoHere():JSX.Element {
+export default function JarryHere():JSX.Element {
   const profile = useSelector(getProfile)
 
   const {i18n} = useTranslation("common")
@@ -22,12 +22,23 @@ export default function AlfredoHere():JSX.Element {
 
   return (
     <Container>
-      <Box sx={{ flexGrow: 1, paddingTop: 8 }}>
+      <Box sx={{ flexGrow: 1, paddingTop: 25 }}>
         <Grid container justifyContent={"center"}>
-          <Grid item>
-            <Typography variant="h1" style={{color: "white"}}>
-              Jarry Fall
-            </Typography>
+          <Grid item paddingBottom={4}>
+            <Fade in={true} timeout={2000}>
+              <Typography variant="h1" style={{color: "white"}}>
+                Jarry Fall
+              </Typography>
+            </Fade>
+          </Grid>
+          <Grid item xs={8}>
+            <Fade in={true} timeout={2500}>
+              <Typography variant="h4" style={{color: "white"}} align={"center"}>
+                is a ux/ui designer based in new york city who is passionate 
+                about crafting compelling and immersive narratives using 
+                human-centered design solutions.
+              </Typography>
+            </Fade>
           </Grid>
         </Grid>
       </Box>
