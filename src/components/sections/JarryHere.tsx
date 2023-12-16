@@ -24,10 +24,10 @@ export default function JarryHere():JSX.Element {
     <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 25 }}>
         <Grid container justifyContent={"center"}>
-          <Grid item paddingBottom={4}>
+          <Grid item container paddingBottom={4} xs={12} justifyContent={"center"}>
             <Fade in={true} timeout={2000}>
               <Typography variant="h1" style={{color: "white"}}>
-                Jarry Fall
+                jarry fall
               </Typography>
             </Fade>
           </Grid>
