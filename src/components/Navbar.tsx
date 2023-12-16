@@ -9,8 +9,8 @@ import Button from "@mui/material/Button"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 
-import { lightBlack, lightGray } from "../theme"
 import { getProfile } from "../store/features/profileSlice"
+import { Grid } from "@mui/material"
 
 
 type NavbarProps = {
@@ -24,12 +24,15 @@ export default function Navbar (
   const {i18n} = useTranslation("common")
 
   const pages = [
-    { title: "About", link: "../0/About" },
+    { title: "Home", link: "../0/home" },
+    { title: "Work", link: "../0/work" },
+    { title: "About", link: "../0/about" },
+    { title: "Fun", link: "../0/fun" },
+
   ]
   
   const location = useLocation()  
   const navigate = useNavigate()
-  const bottomBorder = dark ? lightGray : lightBlack
 
 
   React.useEffect(() => {
@@ -62,33 +65,44 @@ export default function Navbar (
           >
             jmf.
           </Typography>
-
+          
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page, index) => {
-              const samePathname = location.pathname === page.link.slice(2)
-              return (
-                <div 
-                  key={index} 
-                  style={{ 
-                    borderBottom: samePathname ? `solid ${bottomBorder}` : ``, 
-                    marginBottom: 2, 
-                    marginTop: 2 
+            <Grid container justifyContent={"flex-end"}>
+              {pages.map((page, index) => {
+                const samePathname = location.pathname === page.link.slice(2)
+                return (
+                  <Grid item key={index} style={{ marginBottom: 2, marginTop: 2 }}>
+                    <Button
+                      variant="text"
+                      onClick={() => navigate(page.link)}
+                      sx={{
+                        color: samePathname ? "FE55A6" : "#000000",
+                        display: "block",
+                        fontSize: 24,
+                        fontWeight: 700,
+                        textTransform: "capitalize"
+                      }}
+                    >
+                      {page.title}
+                    </Button>
+                  </Grid>
+                )
+              })}
+              <Grid item style={{ marginBottom: 2, marginTop: 2 }}>
+                <Button
+                  variant="text"
+                  sx={{
+                    color: "#000000",
+                    display: "block",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    textTransform: "capitalize"
                   }}
                 >
-                  <Button
-                    variant="text"
-                    onClick={() => navigate(page.link)}
-                    sx={{
-                      color: dark ? lightGray : lightBlack,
-                      display: "block",
-                      fontSize: 16,
-                    }}
-                  >
-                    {page.title}
-                  </Button>
-                </div>
-              )
-            })}
+                  {"CV"}
+                </Button>
+              </Grid>
+            </Grid>
           </Box>
         </Toolbar>
       </Container>
