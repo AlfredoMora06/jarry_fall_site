@@ -8,9 +8,12 @@ import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
+import { Grid } from "@mui/material"
+
 
 import { getProfile } from "../store/features/profileSlice"
-import { Grid } from "@mui/material"
+//@ts-ignore
+import ResumePdf from "../assets/Jarry_Fall_Resume.pdf"
 
 
 type NavbarProps = {
@@ -90,6 +93,9 @@ export default function Navbar (
               })}
               <Grid item style={{ marginBottom: 2, marginTop: 2 }}>
                 <Button
+                  onClick={() => {
+                    window.open(ResumePdf, "_blank")
+                  }}
                   variant="text"
                   sx={{
                     color: "#000000",
