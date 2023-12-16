@@ -24,7 +24,7 @@ export default function Navbar (
   const {i18n} = useTranslation("common")
 
   const pages = [
-    { title: "About", link: "../0/" },
+    { title: "About", link: "../0/About" },
   ]
   
   const location = useLocation()  
@@ -47,21 +47,20 @@ export default function Navbar (
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            color="primary"
+            variant="h2"
             noWrap
             component="a"
             href="/0/home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: dark ? lightGray : "black",
               textDecoration: "none",
             }}
           >
-            Jmf.
+            jmf.
           </Typography>
 
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>

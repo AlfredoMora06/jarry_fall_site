@@ -10,9 +10,13 @@ export const darkOrange = "#E05437"
 
 const theme = createTheme({
   palette: {
+    primary: {
+      light: "#FF9DCC",
+      main: "#FF007A"
+    },
     secondary: {
-      main: darkOrange
-    }
+      main: "#FFEAF4"
+    },
   },
   typography: {
     fontFamily: 'IBM Plex Sans'
