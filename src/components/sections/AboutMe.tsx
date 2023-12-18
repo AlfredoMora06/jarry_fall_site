@@ -9,6 +9,7 @@ import theme from "../../theme"
 //@ts-ignore
 import JarryWorking from "../../assets/JarryWorking.PNG"
 import Timeline from "./Timeline"
+import Skills from "./Skills"
 
 
 const imageStyle = {
@@ -49,13 +50,15 @@ export default function AboutMe():JSX.Element {
             </Typography>
             <br/> <br/>
             <Typography variant="h6">
-              I'm a dynamic ux/ui designer on a mission to craft cutting-edge, data-powered solutions that work! By leveraging a curated blend of UX and design tools, I steer strategic business choices by aligning goals and framing problems. The end result? Captivating, value-packed designs that transform the digital experience into a delightful journey for every user.
+              I'm a dynamic ui/ux designer on a mission to craft cutting-edge, data-powered solutions that work! By leveraging a curated blend of UX and design tools, I steer strategic business choices by aligning goals and framing problems. The end result? Captivating, value-packed designs that transform the digital experience into a delightful journey for every user.
             </Typography>
 
           </Grid>
         </Grid>
 
         <Timeline />
+
+        <Skills />
       </Box>
     </Container>
   );

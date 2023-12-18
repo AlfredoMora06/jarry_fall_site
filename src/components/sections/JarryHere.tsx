@@ -34,7 +34,7 @@ export default function JarryHere():JSX.Element {
           <Grid item xs={8}>
             <Fade in={true} timeout={2500}>
               <Typography variant="h4" style={{color: "white"}} align={"center"}>
-                is a ux/ui designer based in new york city who is passionate 
+                is a ui/ux designer based in new york city who is passionate 
                 about crafting compelling and immersive narratives using 
                 human-centered design solutions.
               </Typography>
