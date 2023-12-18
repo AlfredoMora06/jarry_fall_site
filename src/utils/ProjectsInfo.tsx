@@ -1,9 +1,14 @@
+//@ts-ignore
+import BeeSafe from "../assets/BeeSafe.png"
 
 export const projects = [
   {
-    title: "Earworm",
-    params: "earworm",
-    code: "https://github.com/AlfredoMora06/earworm_",
-    demo: "https://earwrm.io/",
+    title: "BeeSafe App",
+    params: "beesafe",
+    image: BeeSafe,
+    projectLength: "5-day sprint",
+    goal: "To analyze an already existing app idea and then redirect the app into a new app idea. This app is based on fostering a community and depending on your “neighbor” for safety.",
+    roles: ["UI/UX Design", "UX Research", "Information Architecture"],
+    tools: ["Figma", "Google Forms"]
   },
 ]
