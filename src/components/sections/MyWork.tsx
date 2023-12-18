@@ -1,25 +1,29 @@
-import React from "react"
 import Box from "@mui/material/Box"
-import { Container, Grid, Typography } from "@mui/material"
-import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
+import { Button, Container, Grid, Typography, Theme} from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import { useNavigate } from "react-router-dom"
 
-import { getProfile } from "../../store/features/profileSlice"
 import theme from "../../theme"
+//@ts-ignore
+import BeeSafe from "../../assets/BeeSafe.png"
+
+
+const useStyles = makeStyles<Theme>((theme) => ({
+  button: {
+    overflow: "hidden",
+    "&:hover": {
+      "& img": {
+        opacity: 0.8,
+        transform: "scale(1.10)"
+      },
+    },
+  }
+}))
 
 
 export default function MyWork():JSX.Element {
-  const profile = useSelector(getProfile)
-
-  const {i18n} = useTranslation("common")
-
-  React.useEffect(() => {
-    // switch to profile preferred language
-    if (i18n.language !== profile.language) {
-      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
-    }
-  }, [i18n, profile.language])
-
+  const classes = useStyles()
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -29,6 +33,16 @@ export default function MyWork():JSX.Element {
             <Typography variant="h1" fontWeight={700} color={theme.palette.primary.light}>
               My Work
             </Typography>
+          </Grid>
+        </Grid>
+        <Grid container justifyContent={"center"}>
+          <Grid item paddingBottom={10}>
+            <Button
+              variant="text" 
+              className={classes.button}
+            >
+              <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={BeeSafe} alt="beeSafe" />
+            </Button>
           </Grid>
         </Grid>
       </Box>

@@ -105,7 +105,7 @@ export default function Navbar (
                     textTransform: "capitalize"
                   }}
                 >
-                  {"CV"}
+                  {"Resume"}
                 </Button>
               </Grid>
             </Grid>

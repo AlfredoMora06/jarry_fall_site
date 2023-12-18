@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage"
 import thunk from "redux-thunk"
 
 import profileReducer from "./features/profileSlice"
+import projectsReducer from "./features/projectsSlice"
 
 
 
@@ -13,9 +14,15 @@ const persistProfile = {
   storage,
 }
 
+const persistProjects = {
+  key: "projects",
+  storage,
+}
+
 
 export const storeReducers = {
   profile: persistReducer(persistProfile, profileReducer),
+  projects: persistReducer(persistProjects, projectsReducer),
 
 }
 
