@@ -4,8 +4,7 @@ import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
 
 import theme from "../../theme"
-//@ts-ignore
-import BeeSafe from "../../assets/BeeSafe.png"
+import { projects } from "../../utils/ProjectsInfo"
 
 
 const useStyles = makeStyles<Theme>((theme) => ({
@@ -36,14 +35,25 @@ export default function MyWork():JSX.Element {
           </Grid>
         </Grid>
         <Grid container justifyContent={"center"}>
-          <Grid item paddingBottom={10}>
-            <Button
-              variant="text" 
-              className={classes.button}
-            >
-              <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={BeeSafe} alt="beeSafe" />
-            </Button>
-          </Grid>
+          {
+            projects.map((project) => {
+              const {params, image} = project
+              return(
+                <Grid item paddingBottom={10}>
+                <Button
+                  onClick={() => {
+                    navigate(`/0/projects/${params}`, {state: project})
+                    window.scrollTo(0, 0)
+                  }}
+                  variant="text" 
+                  className={classes.button}
+                >
+                  <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={image} alt="beeSafe" />
+                </Button>
+              </Grid>
+              )
+            })
+          }
         </Grid>
       </Box>
     </Container>
