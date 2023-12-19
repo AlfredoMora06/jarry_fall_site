@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import Designs from "../components/sections/Designs"
+import Footer from "../components/sections/Footer"
 import theme from "../theme"
 
 export default function Fun():JSX.Element {
@@ -14,6 +15,7 @@ export default function Fun():JSX.Element {
         <Navbar dark={false} />
         <Designs />
       </div>
+      <Footer />
     </>
   )
 }

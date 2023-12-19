@@ -48,7 +48,7 @@ export default function Navbar (
   return (
     <AppBar
       position="static"
-      sx={{ background: "transparent", boxShadow: "none" }}
+      sx={{ background: "transparent", boxShadow: "none", padding: 4 }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -64,6 +64,7 @@ export default function Navbar (
               fontWeight: 700,
               letterSpacing: ".3rem",
               textDecoration: "none",
+              fontFamily: "Inria Serif"
             }}
           >
             jmf.

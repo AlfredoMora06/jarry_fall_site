@@ -1,7 +1,11 @@
 import { Grid, Typography, Theme } from "@mui/material"
 import { makeStyles } from "@mui/styles"
 
-const useStyles = makeStyles<Theme>((theme) => ({
+//@ts-ignore
+import Point from "../../assets/Point.png"
+import theme from "../../theme"
+
+const useStyles = makeStyles<Theme>(() => ({
   timeline: {
     margin: "0 auto",
     maxWidth: "750px",
@@ -30,6 +34,16 @@ const useStyles = makeStyles<Theme>((theme) => ({
     height: "25px",
     background: "#FF007A",
     borderRadius: "50%",
+  },
+  timeline_pink_point_png: {
+    position: "absolute",
+    top: 0,
+    left: "60%",
+    transform: "translateX(-50%)",
+    width: "25px",
+    height: "25px",
+    borderRadius: "50%",
+    background:  theme.palette.secondary.main,
   },
   
   /* LEAVE TILL LAST */
@@ -81,29 +95,13 @@ export default function Timeline():JSX.Element {
             </div>
           </div>
           <div className={classes.timeline__middle}>
-            <div className={classes.timeline_pink_point}></div>
+            <div className={classes.timeline_pink_point_png}>
+              <img src={Point} alt="Point" style={{width: "100%"}}/>
+            </div>
           </div>
           <div className={classes.timeline__component}>
             <Typography className={classes.timeline__title}>
               I have been accepted into the Masters of Computing, Entrepreneurship and Innovation program at NYU. My program has provided me with the know-how and skills to become the next best CEO. I’ve designed innovative technology solutions for challenges facing society today and translated these ideas to successful entrepreneurial efforts.            
-            </Typography>
-          </div>
-          {/* New point */}
-          <div className={`${classes.timeline__date} ${classes.timeline__date__right}`}>
-            <Grid container item justifyContent={"center"}>
-              <Grid item>
-                <Typography align="center" fontWeight="bold">May 2023</Typography>
-                <Typography align="center">Graduated from</Typography>
-                <Typography align="center">Drew University</Typography>
-              </Grid>
-            </Grid>
-          </div>
-          <div className={classes.timeline__middle}>
-            <div className={classes.timeline_pink_point}></div>
-          </div>
-          <div className={classes.timeline__component}>
-            <Typography className={classes.timeline__title}>
-              I graduated from Drew University in May of 2023, focusing my studies in computer science, business, and dance while taking leadership roles in project management, design, marketing and product strategy. I worked in roles that focused on people - studying human centered design, behavioral trends and patterns, learning about the human psyche, and working with focus groups to understand and enhance the user experience.
             </Typography>
           </div>
           {/* New point */}

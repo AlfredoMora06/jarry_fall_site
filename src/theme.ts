@@ -19,7 +19,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'IBM Plex Sans'
+    fontFamily: 'Inter'
   }
 })
   
