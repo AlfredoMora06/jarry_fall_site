@@ -80,7 +80,7 @@ export default function Navbar (
                       variant="text"
                       onClick={() => navigate(page.link)}
                       sx={{
-                        color: samePathname ? "FE55A6" : "#000000",
+                        color: samePathname ? "#FE55A6" : "#000000",
                         display: "block",
                         fontSize: 24,
                         fontWeight: 700,
