@@ -39,7 +39,7 @@ export default function MyWork():JSX.Element {
             projects.map((project) => {
               const {params, image} = project
               return(
-                <Grid item paddingBottom={10} xs={12} md={9}>
+                <Grid item paddingBottom={10} xs={12} md={8}>
                   <Button
                     onClick={() => {
                       navigate(`/0/projects/${params}`, {state: project})
