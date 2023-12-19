@@ -40,17 +40,17 @@ export default function MyWork():JSX.Element {
               const {params, image} = project
               return(
                 <Grid item paddingBottom={10} xs={12} md={10}>
-                <Button
-                  onClick={() => {
-                    navigate(`/0/projects/${params}`, {state: project})
-                    window.scrollTo(0, 0)
-                  }}
-                  variant="text" 
-                  className={classes.button}
-                >
-                  <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={image} alt="beeSafe" />
-                </Button>
-              </Grid>
+                  <Button
+                    onClick={() => {
+                      navigate(`/0/projects/${params}`, {state: project})
+                      window.scrollTo(0, 0)
+                    }}
+                    variant="text" 
+                    className={classes.button}
+                  >
+                    <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={image} alt="beeSafe" />
+                  </Button>
+                </Grid>
               )
             })
           }
