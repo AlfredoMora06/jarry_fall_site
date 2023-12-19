@@ -7,7 +7,7 @@ import theme from "../../theme"
 import { projects } from "../../utils/ProjectsInfo"
 
 
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles<Theme>(() => ({
   button: {
     overflow: "hidden",
     "&:hover": {
@@ -39,7 +39,7 @@ export default function MyWork():JSX.Element {
             projects.map((project) => {
               const {params, image} = project
               return(
-                <Grid item paddingBottom={10}>
+                <Grid item paddingBottom={10} xs={12} md={10}>
                 <Button
                   onClick={() => {
                     navigate(`/0/projects/${params}`, {state: project})

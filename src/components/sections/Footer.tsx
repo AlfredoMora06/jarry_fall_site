@@ -17,11 +17,11 @@ export default function Footer(): JSX.Element {
             <Grid container spacing={2} sx={{ paddingTop: 7 }}>
               <Grid item container xs={12} justifyContent={"center"}>
                 <Grid item xs={12}>
-                  <Typography variant="h2" align="center">
+                  <Typography variant="h2" align="center" fontWeight={700}>
                     Get in Touch!
                   </Typography>
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid item xs={12} md={8} paddingTop={1}>
                   <Typography variant="h6" align="center">
                     Feel free to connect with me about an opportunity or design talk by reaching out through the links below
                   </Typography>

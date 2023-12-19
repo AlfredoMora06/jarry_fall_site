@@ -26,7 +26,7 @@ export default function JarryHere():JSX.Element {
         <Grid container justifyContent={"center"}>
           <Grid item container paddingBottom={4} xs={12} justifyContent={"center"}>
             <Fade in={true} timeout={2000}>
-              <Typography variant="h1" style={{color: "white"}}>
+              <Typography variant="h1" style={{color: "white"}} fontWeight={700}>
                 jarry fall
               </Typography>
             </Fade>

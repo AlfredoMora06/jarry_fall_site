@@ -40,7 +40,7 @@ export default function Skills():JSX.Element {
   return (
     <Grid container paddingTop={5}>
       <Grid item xs={12}>
-        <Typography variant="h1" fontWeight={400} style={{color: "#FE55A6"}} fontSize={80}>
+        <Typography variant="h1" fontWeight={400} style={{color: "#FE55A6"}} fontSize={80} fontFamily={"Kaisei Decol"}>
           Skills
         </Typography>
       </Grid>
