@@ -22,7 +22,7 @@ export default function JarryHere():JSX.Element {
 
   return (
     <Container>
-      <Box sx={{ flexGrow: 1, paddingTop: 25 }}>
+      <Box sx={{ flexGrow: 1, paddingTop: 17 }}>
         <Grid container justifyContent={"center"}>
           <Grid item container paddingBottom={4} xs={12} justifyContent={"center"}>
             <Fade in={true} timeout={2000}>
