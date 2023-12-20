@@ -3,11 +3,10 @@ import Box from "@mui/material/Box"
 import { Container, Grid, Typography } from "@mui/material"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import {Cloudinary} from "@cloudinary/url-gen"
 
 import { getProfile } from "../../store/features/profileSlice"
 import theme from "../../theme"
-//@ts-ignore
-import JarryWorking from "../../assets/JarryWorking.PNG"
 import Timeline from "./Timeline"
 import Skills from "./Skills"
 
@@ -22,6 +21,8 @@ export default function AboutMe():JSX.Element {
   const profile = useSelector(getProfile)
 
   const {i18n} = useTranslation("common")
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const myImage = cld.image('zgxvf9wuidrvrzed3aeh').toURL()
 
   React.useEffect(() => {
     // switch to profile preferred language
@@ -35,14 +36,14 @@ export default function AboutMe():JSX.Element {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container justifyContent={"center"}>
           <Grid item paddingBottom={6}>
-            <Typography variant="h1" fontWeight={700} color={theme.palette.primary.light}>
+            <Typography variant="h1" fontWeight={700} color={theme.palette.primary.light} fontSize={80}>
               About Me
             </Typography>
           </Grid>
         </Grid>
         <Grid container>
           <Grid item xs={12} md={6}>
-            <img loading="lazy" style={imageStyle} src={JarryWorking} alt="work"/>
+            <img loading="lazy" style={imageStyle} src={myImage} alt="work"/>
           </Grid>
           <Grid item xs={12} md={6} paddingTop={7}>
             <Typography variant="h6">

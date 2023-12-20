@@ -22,7 +22,7 @@ export default function ProjectBody(
         <Grid container spacing={2}>
           <Fade in={true} timeout={1000}>
             <Grid item xs={12} container justifyContent={"center"} paddingBottom={5}>
-              <Typography variant="h1" style={{ fontWeight: 700 }}>
+              <Typography variant="h1" style={{ fontWeight: 700 }} fontSize={80}>
                 {projectTitle}
               </Typography>
             </Grid>
