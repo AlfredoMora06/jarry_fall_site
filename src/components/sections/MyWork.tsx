@@ -2,6 +2,11 @@ import Box from "@mui/material/Box"
 import { Button, Container, Grid, Typography, Theme} from "@mui/material"
 import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 import theme from "../../theme"
 import { projects } from "../../utils/ProjectsInfo"
@@ -38,6 +43,12 @@ export default function MyWork():JSX.Element {
           {
             projects.map((project) => {
               const {params, image} = project
+              const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+              const myImage = cld.image(image)
+                .delivery(quality(qualityAuto()))
+                .delivery(format(auto()))
+                .toURL()
+
               return(
                 <Grid item paddingBottom={10} xs={12} md={8}>
                   <Button
@@ -48,7 +59,7 @@ export default function MyWork():JSX.Element {
                     variant="text" 
                     className={classes.button}
                   >
-                    <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={image} alt="beeSafe" />
+                    <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={myImage} alt="beeSafe" />
                   </Button>
                 </Grid>
               )

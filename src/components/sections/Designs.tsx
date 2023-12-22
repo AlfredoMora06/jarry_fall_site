@@ -2,22 +2,13 @@ import Box from "@mui/material/Box"
 import { Container, Grid, Typography, Theme } from "@mui/material"
 import { makeStyles } from "@mui/styles"
 import Carousel from 'react-material-ui-carousel'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 import theme from "../../theme"
-//@ts-ignore
-import AppleVisionPro from "../../assets/AppleVisionPro.png"
-//@ts-ignore
-import Starbucks from "../../assets/Starbucks.png"
-//@ts-ignore
-import Burger from "../../assets/Burger.png"
-//@ts-ignore
-import Green from "../../assets/Green.png"
-//@ts-ignore
-import LightApp from "../../assets/LightApp.png"
-//@ts-ignore
-import Gray from "../../assets/Gray.png"
-//@ts-ignore
-import Donuts from "../../assets/Donuts.png"
 
 
 const useStyles = makeStyles<Theme>(() => ({
@@ -43,31 +34,31 @@ export default function Designs():JSX.Element {
 
   const items: Item[] = [
     {
-      image: AppleVisionPro,
+      image: "jarry_fall/dhcbfqs1voztcsc0mrct", //AppleVisionPro
       link: "https://www.figma.com/proto/ayFP2iovMS3oD0TE9T6UlH/Apple-Vision-Pro?type=design&t=P5RodzYYx6HMH63U-1&scaling=scale-down&page-id=0%3A1&node-id=1-3&mode=design"
     },
     {
-      image: Starbucks,
+      image: "jarry_fall/n2qqf7mcatueq9trbnuq", // Starbucks
       link: "https://www.figma.com/proto/XLUhqnVGea1FIclFNFGsD6/Pinkity-Drinkity?type=design&t=TpLltn8YkU0O5TeD-1&scaling=scale-down&page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2"
     },
     {
-      image: Burger,
+      image: "jarry_fall/uowsrox5mwgt8nxl7goz", //Burger
       link: "https://www.figma.com/proto/jPuamvmjT9Y15d4iOEiE9P/Burger?type=design&t=59ltrvQQVWoxqAqC-1&scaling=scale-down&page-id=0%3A1&node-id=2-2&starting-point-node-id=2%3A2&mode=design"
     },
     {
-      image: Green,
+      image: "jarry_fall/fxgjp9u0zcivgacxm0cq", // Green
       link: "https://www.figma.com/proto/S4GH122zHBXQCQgRzjFJ25/AirPods-Max?type=design&t=rA8KjJSYHWSkTxjP-1&scaling=min-zoom&page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2&mode=design"
     },
     {
-      image: LightApp,
+      image: "jarry_fall/faaf9s8xrbsgyiwnqvrf", // LightApp
       link: "https://www.figma.com/proto/dD9dQsEOd0MjNL8UXLUWgS/Brightness-Adjustment?type=design&t=OCt1dYUoz7ATiu32-1&scaling=scale-down&page-id=0%3A1&node-id=6-319&starting-point-node-id=1%3A4&mode=design"
     },
     {
-      image: Gray,
+      image: "jarry_fall/xsko2s2effbscxc2t2lw", // Gray
       link: "https://www.figma.com/proto/DNv2l7NVu5lgnA5YAkKlYZ/iPhone?type=design&node-id=1-2&t=OepyMsFPsY1mcSPe-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2&mode=design"
     },
     {
-      image: Donuts,
+      image: "jarry_fall/mgmwndiwlgfz9mangyly", // Donuts
       link: "https://www.figma.com/proto/qLACAeQO7qd7WimB9iUEGk/Sweet-Donuts?type=design&t=1PjyNk9y7evfkTVA-1&scaling=scale-down&page-id=0%3A1&node-id=1-145&starting-point-node-id=1%3A2&mode=design"
     }
   ]
@@ -93,6 +84,11 @@ export default function Designs():JSX.Element {
             >
               {
                 items.map((item, index) => {
+                  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+                  const myImage = cld.image(item.image)
+                    .delivery(quality(qualityAuto()))
+                    .delivery(format(auto()))
+                    .toURL()
                   return (
                     <div
                       className={classes.button}
@@ -102,7 +98,7 @@ export default function Designs():JSX.Element {
                       }}
                     >
                       <img 
-                        src={item.image} 
+                        src={myImage} 
                         alt={`imagen-${index}`} 
                         style={{width: "100%", borderRadius: 50, maxHeight: 500, objectFit: "contain", transition: "transform .2s"}}
                       />
