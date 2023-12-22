@@ -1,6 +1,11 @@
 import Box from "@mui/material/Box"
 import { Container, Fade, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 
 type ProjectBodyProps = {
@@ -15,6 +20,11 @@ type ProjectBodyProps = {
 export default function ProjectBody(
   {projectTitle, imageSrc, projectLength, projectGoal, roles, tools}: ProjectBodyProps
 ):JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const myImage = cld.image(imageSrc)
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
 
   return (
     <Container>
@@ -32,7 +42,7 @@ export default function ProjectBody(
             <Grid item xs={12} md={10}>
              <img
                loading="lazy" 
-               src={imageSrc}
+               src={myImage}
                alt={projectTitle}
                style={{ width: "100%"}}
              />

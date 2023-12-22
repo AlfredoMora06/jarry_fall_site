@@ -1,11 +1,11 @@
-import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Grid, Typography } from "@mui/material"
-import { useTranslation } from "react-i18next"
-import { useSelector } from "react-redux"
 import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
-import { getProfile } from "../../store/features/profileSlice"
 import theme from "../../theme"
 import Timeline from "./Timeline"
 import Skills from "./Skills"
@@ -18,18 +18,11 @@ const imageStyle = {
 }
 
 export default function AboutMe():JSX.Element {
-  const profile = useSelector(getProfile)
-
-  const {i18n} = useTranslation("common")
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
-  const myImage = cld.image('zgxvf9wuidrvrzed3aeh').toURL()
-
-  React.useEffect(() => {
-    // switch to profile preferred language
-    if (i18n.language !== profile.language) {
-      i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
-    }
-  }, [i18n, profile.language])
+  const myImage = cld.image('zgxvf9wuidrvrzed3aeh')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
 
   return (
     <Container>
