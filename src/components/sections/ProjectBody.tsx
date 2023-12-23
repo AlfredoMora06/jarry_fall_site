@@ -1,11 +1,8 @@
 import Box from "@mui/material/Box"
 import { Container, Fade, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
-import {Cloudinary} from "@cloudinary/url-gen"
-import { format } from "@cloudinary/url-gen/actions/delivery"
-import { auto } from "@cloudinary/url-gen/qualifiers/format"
-import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
-import { quality } from "@cloudinary/url-gen/actions/delivery"
+//@ts-ignore
+import BeeLogo from "../../assets/BeeLogo.svg"
 
 
 type ProjectBodyProps = {
@@ -18,20 +15,15 @@ type ProjectBodyProps = {
 }
 
 export default function ProjectBody(
-  {projectTitle, imageSrc, projectLength, projectGoal, roles, tools}: ProjectBodyProps
+  {projectTitle, projectLength, projectGoal, roles, tools}: ProjectBodyProps
 ):JSX.Element {
-  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
-  const myImage = cld.image(imageSrc)
-    .delivery(quality(qualityAuto()))
-    .delivery(format(auto()))
-    .toURL()
 
   return (
     <Container>
       <Box sx={{ flexGrow: 1, paddingTop: 8 }}>
         <Grid container spacing={2}>
           <Fade in={true} timeout={1000}>
-            <Grid item xs={12} container justifyContent={"center"} paddingBottom={5}>
+            <Grid item xs={12} container justifyContent={"center"}>
               <Typography variant="h1" style={{ fontWeight: 700 }} fontSize={80}>
                 {projectTitle}
               </Typography>
@@ -39,10 +31,10 @@ export default function ProjectBody(
           </Fade>
 
           <Grid item container justifyContent={"center"} paddingBottom={2}>
-            <Grid item xs={12} md={10}>
+            <Grid item xs={10} md={1.5} container justifyContent={"center"}>
              <img
                loading="lazy" 
-               src={myImage}
+               src={BeeLogo}
                alt={projectTitle}
                style={{ width: "100%"}}
              />
