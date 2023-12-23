@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import { getProjects } from '../store/features/projectsSlice'
 import ProjectBody from '../components/sections/ProjectBody'
+import Discover from '../components/sections/Discover'
 
 
 export default function SingleProject():JSX.Element {
@@ -24,12 +25,7 @@ export default function SingleProject():JSX.Element {
 
   return location.state && project ? (
     <>
-      <div
-        style={{
-          backgroundColor: "#FFFFFF",
-          paddingBottom: 100,
-        }}
-      >
+      <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 100 }}>
         <Navbar dark={false} />
         <ProjectBody 
           projectTitle={project.title} 
@@ -40,6 +36,7 @@ export default function SingleProject():JSX.Element {
           tools={project.tools}
         />
       </div>
+      <Discover />
       <Footer />
     </>
   ) : <></>

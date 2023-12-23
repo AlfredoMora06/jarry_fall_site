@@ -51,7 +51,7 @@ export default function Designs():JSX.Element {
     },
     {
       image: "jarry_fall/faaf9s8xrbsgyiwnqvrf", // LightApp
-      link: "https://www.figma.com/proto/dD9dQsEOd0MjNL8UXLUWgS/Brightness-Adjustment?type=design&t=OCt1dYUoz7ATiu32-1&scaling=scale-down&page-id=0%3A1&node-id=6-319&starting-point-node-id=1%3A4&mode=design"
+      link: "https://www.figma.com/proto/dD9dQsEOd0MjNL8UXLUWgS/Brightness-Adjustment?type=design&t=OCt1dYUoz7ATiu32-1&scaling=scale-down&page-id=0%3A1&node-id=1-4&starting-point-node-id=1%3A4"
     },
     {
       image: "jarry_fall/xsko2s2effbscxc2t2lw", // Gray
@@ -59,7 +59,7 @@ export default function Designs():JSX.Element {
     },
     {
       image: "jarry_fall/mgmwndiwlgfz9mangyly", // Donuts
-      link: "https://www.figma.com/proto/qLACAeQO7qd7WimB9iUEGk/Sweet-Donuts?type=design&t=1PjyNk9y7evfkTVA-1&scaling=scale-down&page-id=0%3A1&node-id=1-145&starting-point-node-id=1%3A2&mode=design"
+      link: "https://www.figma.com/proto/qLACAeQO7qd7WimB9iUEGk/Sweet-Donuts?type=design&t=1PjyNk9y7evfkTVA-1&scaling=scale-down&page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2"
     }
   ]
 
@@ -100,7 +100,14 @@ export default function Designs():JSX.Element {
                       <img 
                         src={myImage} 
                         alt={`imagen-${index}`} 
-                        style={{width: "100%", borderRadius: 50, maxHeight: 500, objectFit: "contain", transition: "transform .2s"}}
+                        style={{
+                          width: "100%", 
+                          borderRadius: 50,
+                          minHeight: 300,
+                          maxHeight: 500, 
+                          objectFit: "contain", 
+                          transition: "transform .2s"
+                        }}
                       />
                     </div>
                   )
