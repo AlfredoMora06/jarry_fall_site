@@ -17,6 +17,11 @@ type ProjectBodyProps = {
 export default function ProjectBody(
   {projectTitle, projectLength, projectGoal, roles, tools}: ProjectBodyProps
 ):JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const myImage = cld.image(imageSrc)
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
 
   return (
     <Container>
