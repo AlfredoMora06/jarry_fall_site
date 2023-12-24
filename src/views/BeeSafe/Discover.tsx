@@ -1,10 +1,48 @@
 import { Container, Grid, Typography } from '@mui/material'
+//@ts-ignore
+import searchIcon from "../../assets/searchIcon.svg"
+//@ts-ignore
+import dollarIcon from "../../assets/dollarIcon.svg"
+//@ts-ignore
+import circleArrowsIcon from "../../assets/circleArrowsIcon.svg"
+//@ts-ignore
+import mapLineIcon from "../../assets/mapLineIcon.svg"
+//@ts-ignore
+import mapIcon from "../../assets/mapIcon.svg"
+
+const quantDataArray = [
+  {
+    image: searchIcon,
+    title: 'CITIZEN',
+    description: `Is our user’s preferred safety app`
+  },
+  {
+    image: dollarIcon,
+    title: 'FEES',
+    description: `Our user’s don’t like paying for premium features`
+  },
+  {
+    image: circleArrowsIcon,
+    title: 'DAILY',
+    description: `Is how often the majority of our user’s use a safety app`
+  },
+  {
+    image: mapLineIcon,
+    title: '80%',
+    description: `Of our user’s track their family and friend’s location`
+  },
+  {
+    image: mapIcon,
+    title: '100%',
+    description: `Of our user’s share their location with family and friends `
+  }
+]
 
 
 export default function Discover():JSX.Element {
 
   return (
-    <div style={{paddingBottom: 50}}>
+    <div>
       <div style={{ backgroundColor: "#FFDF6C" }}>
         <Grid container justifyContent={"center"}>
           <Grid item paddingY={10} >
@@ -92,7 +130,7 @@ export default function Discover():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={5} paddingBottom={15}>
+          <Grid container paddingTop={5} paddingBottom={10}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 After our market research, we moved onto user research. We started with a survey, which we sent out through email to our contacts.              
@@ -117,6 +155,21 @@ export default function Discover():JSX.Element {
           </Grid>
 
           {/* TODO -- Logos */}
+          <Grid container paddingTop={5}>
+            { quantDataArray.map((item) => {
+                const {image, title, description} = item
+                return (
+                  <Grid item xs={12} md={2.4} key={title} paddingX={1}>
+                    <Grid item container justifyContent={"center"}>
+                      <img src={image} alt={title}/>
+                    </Grid>
+                    <Typography variant='h6' fontWeight={700} align='center'>{title}</Typography>
+                    <Typography variant='h6' align='center'>{description}</Typography>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
           <Grid container paddingTop={5} paddingBottom={15}>
             <Grid item xs={12}>
