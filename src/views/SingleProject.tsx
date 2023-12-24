@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import {useLocation, useNavigate} from 'react-router-dom'
 
@@ -6,7 +6,12 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/sections/Footer"
 import { getProjects } from '../store/features/projectsSlice'
 import ProjectBody from '../components/sections/ProjectBody'
-import Discover from '../components/sections/Discover'
+import Discover from './BeeSafe/Discover'
+import Define from './BeeSafe/Define'
+import BeeSafeDevelop from './BeeSafe/BeeSafeDevelop'
+import BackToTop from './BeeSafe/BackToTop'
+import DiscoverSecond from './BeeSafe/DiscoverSecond'
+
 
 
 export default function SingleProject():JSX.Element {
@@ -14,6 +19,7 @@ export default function SingleProject():JSX.Element {
   const navigate = useNavigate()
   const projects = useSelector(getProjects)
   const project = projects.find((p: any) => p.title === location.state.title)
+  const topRef = useRef<any>()
   
 
   React.useEffect(() => {
@@ -25,7 +31,7 @@ export default function SingleProject():JSX.Element {
 
   return location.state && project ? (
     <>
-      <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 100 }}>
+      <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 100 }} ref={topRef}>
         <Navbar dark={false} />
         <ProjectBody 
           projectTitle={project.title} 
@@ -37,6 +43,10 @@ export default function SingleProject():JSX.Element {
         />
       </div>
       <Discover />
+      <Define />
+      <BeeSafeDevelop />
+      <DiscoverSecond />
+      <BackToTop topRef={topRef}/>
       <Footer />
     </>
   ) : <></>
