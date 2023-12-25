@@ -63,7 +63,7 @@ export default function ProjectBody(
                 ROLES
               </Typography>
             </Grid>
-            <ul>
+            <ul style={{paddingLeft: 0}}>
               {
                 roles.map((role) => {
                   return (
@@ -82,7 +82,7 @@ export default function ProjectBody(
                 TOOLS
               </Typography>
             </Grid>
-            <ul>
+            <ul style={{paddingLeft: 0}}>
               {
                 tools.map((tool) => {
                   return (
