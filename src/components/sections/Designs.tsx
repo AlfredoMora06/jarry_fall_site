@@ -76,7 +76,7 @@ export default function Designs():JSX.Element {
 
         <Grid container>
           <Grid item xs={12}>
-            <Carousel 
+            <Carousel
               animation="slide" 
               navButtonsAlwaysVisible 
               indicators={false}
@@ -103,7 +103,7 @@ export default function Designs():JSX.Element {
                         style={{
                           width: "100%", 
                           borderRadius: 50,
-                          minHeight: 420,
+                          minHeight: 440,
                           maxHeight: 500, 
                           objectFit: "contain", 
                           transition: "transform .2s"

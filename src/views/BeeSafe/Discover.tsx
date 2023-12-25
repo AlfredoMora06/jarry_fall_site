@@ -1,4 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material'
+
 //@ts-ignore
 import searchIcon from "../../assets/searchIcon.svg"
 //@ts-ignore
@@ -40,6 +41,7 @@ const quantDataArray = [
 
 
 export default function Discover():JSX.Element {
+  const imageArray: any[] = []
 
   return (
     <div>
@@ -60,6 +62,18 @@ export default function Discover():JSX.Element {
                 ORIGINAL CONCEPT / PAIN POINT
               </Typography>
             </Grid>
+          </Grid>
+          
+          
+          <Grid container justifyContent={"center"}>
+            { imageArray.length > 0 ? imageArray.map((image) => {
+                return (
+                  <Grid item xs={12} md={3}>
+                    <img src={image} alt={image} style={{width: "100%", objectFit: "contain",}}/>
+                  </Grid>
+                )
+              }) : <></>
+            }
           </Grid>
 
 
