@@ -87,8 +87,8 @@ export default function Define():JSX.Element {
           </Grid>
           
           <Grid container paddingBottom={5}>
-            <Grid item xs={12}>
-              <img src={beeCard} alt="beeCard"/>
+            <Grid item xs={12} md={8}>
+              <img src={beeCard} alt="beeCard" style={{width: "100%"}}/>
             </Grid>
           </Grid>
 
@@ -121,8 +121,8 @@ export default function Define():JSX.Element {
           </Grid>
 
           <Grid container paddingBottom={5}>
-            <Grid item xs={12}>
-              <img src={userScenario} alt="beeCard"/>
+            <Grid item xs={12} md={8}>
+              <img src={userScenario} alt="beeCard" style={{width: "100%"}}/>
             </Grid>
           </Grid>
         </Container>
