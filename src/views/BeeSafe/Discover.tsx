@@ -1,4 +1,9 @@
 import { Container, Grid, Typography } from '@mui/material'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 //@ts-ignore
 import searchIcon from "../../assets/searchIcon.svg"
@@ -10,6 +15,9 @@ import circleArrowsIcon from "../../assets/circleArrowsIcon.svg"
 import mapLineIcon from "../../assets/mapLineIcon.svg"
 //@ts-ignore
 import mapIcon from "../../assets/mapIcon.svg"
+//@ts-ignore
+import hiveIcon from "../../assets/Hive.svg"
+import ComparisonCheckTable from './ComparisonCheckTable'
 
 const quantDataArray = [
   {
@@ -41,7 +49,12 @@ const quantDataArray = [
 
 
 export default function Discover():JSX.Element {
-  const imageArray: any[] = []
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const phoneImage = cld.image('jarry_fall/sv3yfb4o8ejxxhl0wdqd')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+  
 
   return (
     <div>
@@ -65,15 +78,18 @@ export default function Discover():JSX.Element {
           </Grid>
           
           
-          <Grid container justifyContent={"center"}>
-            { imageArray.length > 0 ? imageArray.map((image) => {
-                return (
-                  <Grid item xs={12} md={3}>
-                    <img src={image} alt={image} style={{width: "100%", objectFit: "contain",}}/>
-                  </Grid>
-                )
-              }) : <></>
-            }
+          <Grid container justifyContent={"center"} paddingTop={2}>
+            <Grid item xs={12} md={5} container justifyContent={"center"}>
+              <Grid item xs={6} md={3}>
+                <img src={hiveIcon} alt={"hiveIcon"} style={{width: "100%", objectFit: "contain",}}/>
+              </Grid>
+              <Grid item xs={6} md={3} container alignContent={"center"} paddingLeft={1} paddingTop={2}>
+                <Typography variant='h3' fontWeight={700}>HIVE</Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={8} container justifyContent={"center"}>
+              <img src={phoneImage} alt={"phonesImage"} style={{width: "100%", objectFit: "contain",}}/>
+            </Grid>
           </Grid>
 
 
@@ -114,7 +130,7 @@ export default function Discover():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={5} paddingBottom={15}>
+          <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 The feature comparison chart serves as a valuable tool for juxtaposing the features of our app with those of our competitors. This aids in the swift identification of market trends and openings.
@@ -126,7 +142,7 @@ export default function Discover():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- Checkmark adding */}
+          <ComparisonCheckTable />
 
           <Grid container paddingTop={5} paddingBottom={15}>
             <Grid item xs={12}>

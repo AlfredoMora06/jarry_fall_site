@@ -18,6 +18,11 @@ export default function Define():JSX.Element {
     .delivery(format(auto()))
     .toURL()
 
+    const valuePropositionChart = cld.image('jarry_fall/omw8oercyenu6exjuwz2')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+
   return (
     <div style={{paddingBottom: 50}}>
       <div style={{ backgroundColor: "#FFDF6C" }}>
@@ -39,7 +44,7 @@ export default function Define():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={5} paddingBottom={10}>
+          <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 A value proposition chart serves as a tool for designers to distinctly outline the quantifiable and observable benefits that users derive from utilizing a product or service.
@@ -55,7 +60,11 @@ export default function Define():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- Get Image From Jarry */}
+          <Grid container paddingBottom={5}>
+            <Grid item xs={12} container justifyContent={"center"}>
+              <img src={valuePropositionChart} alt="valuePropositionChart"/>
+            </Grid>
+          </Grid>
 
           <Grid container>
             <Grid item xs={12}>
