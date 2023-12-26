@@ -9,13 +9,14 @@ import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
 
 //@ts-ignore
-import BeeSafeApp from "../../assets/Beesafe-app.svg"
+import BeeSafeApp from "../../assets/Beesafe-app.png"
 //@ts-ignore
-import CitizenApp from "../../assets/Citizen-app.svg"
+import CitizenApp from "../../assets/Citizen-app.png"
 //@ts-ignore
-import Life360 from "../../assets/Life360-app.svg"
+import Life360 from "../../assets/Life360-app.png"
 //@ts-ignore
-import Noonlight from "../../assets/Noonlight-app.svg"
+import Noonlight from "../../assets/Noonlight-app.png"
+import { Typography } from '@mui/material'
 
 
 
@@ -82,13 +83,13 @@ export default function ComparisonCheckTable() {
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell align="center">Safest Map Route</TableCell>
-            <TableCell align="center">Panic Button</TableCell>
-            <TableCell align="center">Community Live Video Incident</TableCell>
-            <TableCell align="center">24/7 Location Share</TableCell>
-            <TableCell align="center">Safety Challenges/Gamification</TableCell>
-            <TableCell align="center">Community Bulletin Board</TableCell>
-            <TableCell align="center">Direct Messaging</TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Safest Map Route</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Panic Button</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Community Live Video Incident</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>24/7 Location Share</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Safety Challenges / Gamification</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Community Bulletin Board</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Direct Messaging</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

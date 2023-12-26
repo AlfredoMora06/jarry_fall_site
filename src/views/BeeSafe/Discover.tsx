@@ -50,7 +50,7 @@ const quantDataArray = [
 
 export default function Discover():JSX.Element {
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
-  const phoneImage = cld.image('jarry_fall/sv3yfb4o8ejxxhl0wdqd')
+  const phoneImage = cld.image('jarry_fall/kdff1al0d4yti5og1vz3')
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()
@@ -93,7 +93,7 @@ export default function Discover():JSX.Element {
           </Grid>
 
 
-          <Grid container paddingTop={5} paddingBottom={15}>
+          <Grid container paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 HIVE focuses on creating a solution for the lack of community spirit, overburdened services, and unproductive use of free time prevail in large cities. Presently, residents find themselves alienated from their neighbors, contributing to an absence of community cohesion. Concurrently, essential services within the city are overwhelmed, leading to prolonged wait times. A significant number of individuals fail to utilize their free time productively, despite harboring untapped skills. By addressing, these challenges HIVE empowers residents in large buildings to leverage their skills, ensuring swift access to vital services, and fostering a sense of community among neighbors.
@@ -117,7 +117,7 @@ export default function Discover():JSX.Element {
           <Grid container paddingY={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
-                "In the discovery stage, our emphasis was on gaining a deep understanding of global issues, user challenges, and identifying the extent of our knowledge. We proactively considered potential business problems, envisioned desired outcomes, examined diverse user types, and addressed anticipated challenges. This comprehensive approach, which also included a thorough analysis of competitors such as “The Citizen,” “Life 360,” and “Noonlight,” enabled us to craft a well-informed strategy for the project. By delving into the complexities of worldwide issues and user perspectives, we laid a strong foundation to navigate potential obstacles. This ensures that our solutions are not only innovative but also responsive to the diverse needs of our user base, differentiating us in the market and positioning us strategically among industry competitors.             
+                In the discovery stage, our emphasis was on gaining a deep understanding of global issues, user challenges, and identifying the extent of our knowledge. We proactively considered potential business problems, envisioned desired outcomes, examined diverse user types, and addressed anticipated challenges. This comprehensive approach, which also included a thorough analysis of competitors such as “The Citizen,” “Life 360,” and “Noonlight,” enabled us to craft a well-informed strategy for the project. By delving into the complexities of worldwide issues and user perspectives, we laid a strong foundation to navigate potential obstacles. This ensures that our solutions are not only innovative but also responsive to the diverse needs of our user base, differentiating us in the market and positioning us strategically among industry competitors.              
               </Typography>
             </Grid>
           </Grid>
@@ -144,7 +144,7 @@ export default function Discover():JSX.Element {
 
           <ComparisonCheckTable />
 
-          <Grid container paddingTop={5} paddingBottom={15}>
+          <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 We aspired to craft features that not only addressed the unique needs of communities and individuals but also distinguished us from competitors. Our innovative offerings, such as the Safety Challenges/Gamification feature and the Community Bulletin Board feature, stand out as prime examples of our commitment to providing distinctive and valuable functionalities.              
@@ -212,7 +212,7 @@ export default function Discover():JSX.Element {
               </Typography>
               <br/>
               <Typography variant="h6">
-                This approach proved valuable as it allowed me to gain a more profound insight into our users' motivations for choosing CITIZEN over apps like Life250 and Noonlight.
+                This approach proved valuable as it allowed me to gain a more profound insight into our users' motivations for choosing CITIZEN over apps like Life360 and Noonlight.              
               </Typography>
             </Grid>
           </Grid>
