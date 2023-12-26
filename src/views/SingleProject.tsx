@@ -31,7 +31,7 @@ export default function SingleProject():JSX.Element {
 
   return location.state && project ? (
     <>
-      <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 100 }} ref={topRef}>
+      <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 50 }} ref={topRef}>
         <Navbar dark={false} />
         <ProjectBody 
           projectTitle={project.title} 
