@@ -6,6 +6,9 @@ import Intro from './Intro'
 import AhcDiscover from './AhcDiscover'
 import AhcDefine from './AhcDefine'
 import AhcBackToTop from './AhcBackToTop'
+import AhcDevelop from './AhcDevelop'
+import AhcDeliver from './AhcDeliver'
+
 
 export default function AfricanHopeCommittee():JSX.Element {
   const topRef = useRef<any>()
@@ -25,6 +28,8 @@ export default function AfricanHopeCommittee():JSX.Element {
     </div>
     <AhcDiscover />
     <AhcDefine />
+    <AhcDevelop />
+    <AhcDeliver />
     <AhcBackToTop topRef={topRef}/>
     <Footer />
   </>
