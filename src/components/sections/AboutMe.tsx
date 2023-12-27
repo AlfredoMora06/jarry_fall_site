@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box"
-import { Container, Grid, Typography } from "@mui/material"
+import { Container, Fade, Grid, Typography } from "@mui/material"
 import {Cloudinary} from "@cloudinary/url-gen"
 import { format } from "@cloudinary/url-gen/actions/delivery"
 import { auto } from "@cloudinary/url-gen/qualifiers/format"
@@ -35,9 +35,11 @@ export default function AboutMe():JSX.Element {
           </Grid>
         </Grid>
         <Grid container>
-          <Grid item xs={12} md={6}>
-            <img loading="lazy" style={imageStyle} src={myImage} alt="work"/>
-          </Grid>
+          <Fade in={true} timeout={1000}>
+            <Grid item xs={12} md={6}>
+              <img loading="lazy" style={imageStyle} src={myImage} alt="work"/>
+            </Grid>
+          </Fade>
           <Grid item xs={12} md={6} paddingTop={7}>
             <Typography variant="h6">
               Hi! My name is Jarry. I am a dancer 💃🏾, a traveler✈️, a foodie 🌮, a problem-solver✅, and a compassionate individual deeply committed to infusing empathy and novelty into professional environments and making a lasting, meaningful impact on people's experiences through thoughtful design.
