@@ -3,6 +3,9 @@ import { useRef } from 'react'
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/sections/Footer"
 import Intro from './Intro'
+import AhcDiscover from './AhcDiscover'
+import AhcDefine from './AhcDefine'
+import AhcBackToTop from './AhcBackToTop'
 
 export default function AfricanHopeCommittee():JSX.Element {
   const topRef = useRef<any>()
@@ -20,6 +23,9 @@ export default function AfricanHopeCommittee():JSX.Element {
         color={"#BD2024"}
       />
     </div>
+    <AhcDiscover />
+    <AhcDefine />
+    <AhcBackToTop topRef={topRef}/>
     <Footer />
   </>
 }

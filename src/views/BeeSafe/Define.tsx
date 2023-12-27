@@ -60,9 +60,9 @@ export default function Define():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingBottom={5}>
-            <Grid item xs={12} container justifyContent={"center"}>
-              <img src={valuePropositionChart} alt="valuePropositionChart"/>
+          <Grid container paddingBottom={5} justifyContent={"center"}>
+            <Grid item xs={12} md={5}>
+              <img src={valuePropositionChart} alt="valuePropositionChart" style={{width: "100%", objectFit: "contain"}}/>
             </Grid>
           </Grid>
 
