@@ -184,7 +184,6 @@ export default function Discover():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- Logos */}
           <Grid container paddingTop={5}>
             { quantDataArray.map((item) => {
                 const {image, title, description} = item
@@ -216,10 +215,6 @@ export default function Discover():JSX.Element {
               </Typography>
             </Grid>
           </Grid>
-
-
-
-
         </Container>
 
       </div>
