@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from '@mui/material'
 
+
 const keyAreasOfEmphasis: {title: string, description: string}[] = [
   {
     title: "Clutter-Free Layout:",
@@ -46,8 +47,6 @@ const keyAreasOfEmphasis: {title: string, description: string}[] = [
     description: "Craft the redesign in a way that resonates effectively with the target audience of AHC."
   },
 ]
-
-
 
 export default function AhcDiscover():JSX.Element {
 
@@ -102,7 +101,6 @@ export default function AhcDiscover():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- Key Areas of Emphasis: */}
           <Grid container paddingTop={3}>
             <Grid item xs={12}>
               <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
