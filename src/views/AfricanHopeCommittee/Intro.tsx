@@ -2,12 +2,12 @@ import Box from "@mui/material/Box"
 import { Container, Fade, Typography } from "@mui/material"
 import Grid from "@mui/material/Grid"
 //@ts-ignore
-import BeeLogo from "../../assets/BeeLogo.svg"
+import AHC from "../../assets/AHC.svg"
 
 
 type ProjectBodyProps = {
   projectTitle: string,
-  imageSrc: string,
+  projectClient: string,
   projectLength: string,
   projectGoal: string,
   roles: string[],
@@ -15,8 +15,8 @@ type ProjectBodyProps = {
   color: string
 }
 
-export default function ProjectBody(
-  {projectTitle, projectLength, projectGoal, roles, tools, color}: ProjectBodyProps
+export default function Intro(
+  {projectTitle, projectClient, projectLength, projectGoal, roles, tools, color}: ProjectBodyProps
 ):JSX.Element {
 
   return (
@@ -35,7 +35,7 @@ export default function ProjectBody(
             <Grid item xs={10} md={1.5} container justifyContent={"center"}>
              <img
                loading="lazy" 
-               src={BeeLogo}
+               src={AHC}
                alt={projectTitle}
                style={{ width: "100%"}}
              />
@@ -47,14 +47,22 @@ export default function ProjectBody(
               PROJECT OVERVIEW
             </Typography>
           </Grid>
-          <Grid item xs={12} container paddingBottom={2}>
+
+          <Grid item xs={12} container paddingBottom={3}>
             <Typography variant="h5" display={"inline"}>
-              {`Project Length: ${projectLength}`}
+              {`Client: ${projectClient}`}
             </Typography>
           </Grid>
+
           <Grid item xs={12} container paddingBottom={3}>
             <Typography variant="h5" display={"inline"}>
               {`Goal: ${projectGoal}`}
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} container paddingBottom={2}>
+            <Typography variant="h5" display={"inline"}>
+              {`Project Length: ${projectLength}`}
             </Typography>
           </Grid>
 
