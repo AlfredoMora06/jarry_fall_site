@@ -119,7 +119,7 @@ export default function AhcDevelop():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={5} paddingBottom={10}>
+          <Grid container paddingTop={2} paddingBottom={10}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 After consolidating insights gathered through each phase, my <strong style={{color: "#A62626"}}>minimum viable product</strong> will take shape as a renovated website for the African Hope Committee (AHC).

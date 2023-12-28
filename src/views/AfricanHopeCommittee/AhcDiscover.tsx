@@ -1,4 +1,9 @@
 import { Container, Grid, Typography } from '@mui/material'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 
 const keyAreasOfEmphasis: {title: string, description: string}[] = [
@@ -49,6 +54,13 @@ const keyAreasOfEmphasis: {title: string, description: string}[] = [
 ]
 
 export default function AhcDiscover():JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+
+  const ogSiteImages = [
+    'jarry_fall/AHC/q2jke84v9orpozyiy1ba',
+    'jarry_fall/AHC/k2osxbucccr0g38p3vy3',
+    'jarry_fall/AHC/mtpxvoyy0nmt61tss6mx'
+  ]
 
   return (
     <div>
@@ -71,9 +83,23 @@ export default function AhcDiscover():JSX.Element {
             </Grid>
           </Grid>
 
-          {/*TODO -- Laptop Images */}
+          <Grid container paddingTop={2}>
+            {
+              ogSiteImages.map((siteImage) => {
+                const ogImage = cld.image(siteImage)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={4} padding={2}>
+                    <img src={ogImage} alt={ogImage} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
           
-          <Grid container paddingTop={5} paddingBottom={15}>
+          <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 The existing website holds valuable information, but its cluttered layout creates visual distractions and overwhelms users. The design appears outdated, lacking a cohesive style guide. Some crucial information is positioned where users typically wouldn't click, and outdated content is mixed with more relevant information, lacking a clear organizational order. To enhance user experience, it's essential to prioritize a clean, organized layout with up-to-date information at the forefront and a cohesive visual design.              
