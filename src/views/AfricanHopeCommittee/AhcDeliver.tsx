@@ -1,7 +1,62 @@
 import { Container, Grid, Typography } from '@mui/material'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 
 export default function AhcDeliver():JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const photoArray = [
+    'jarry_fall/AHC/dr0kcmkctpsitcvj8n9b',
+    'jarry_fall/AHC/r4qbjfno2qdi5dehkcnt',
+    'jarry_fall/AHC/pgustnb7ignvahazalsn',
+    'jarry_fall/AHC/vy4av5cwkiir9tkyktnm',
+    'jarry_fall/AHC/bsdriujcdexlxydomldr',
+    'jarry_fall/AHC/k6kpzsrrbuximqxpecev',
+    'jarry_fall/AHC/g2lj5kwk1laae04evj9o',
+    'jarry_fall/AHC/xue8jss7w8whp4zpdkpw'
+  ] 
+
+  const colorSquares: {title: string, color: string, white: boolean}[] = [
+    {
+      title: "Playful",
+      color: "-webkit-linear-gradient(#F98080, #9B1D1D)",
+      white: true
+    },
+    {
+      title: "Cohesive",
+      color: "#9C1818",
+      white: true
+    },
+    {
+      title: "Professional",
+      color: "#4F0202",
+      white: true
+    },
+    {
+      title: "Clean",
+      color: "#CB9D72",
+      white: false
+    },
+    {
+      title: "Inviting",
+      color: "#F6C58C",
+      white: false,
+    },
+    {
+      title: "Calm",
+      color: "#FFF0DE",
+      white: false
+    }
+  ]
+
+  const hiWireFrames = [
+    'jarry_fall/AHC/sg1byncuwqh1nli0swgy',
+    'jarry_fall/AHC/i166a1ghcaschbq6uxcp',
+    'jarry_fall/AHC/tx7kwbt2cow7ktli38dy'
+  ]
 
   return (
     <div>
@@ -32,7 +87,7 @@ export default function AhcDeliver():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={5} paddingBottom={5}>
+          <Grid container paddingTop={2} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 I developed a lo-fi prototype utilizing an iPad and Apple Pencil for swift and iterative design adjustments. This method instills a mindset among designers, preventing us from becoming overly attached to a a particular design.              
@@ -45,6 +100,118 @@ export default function AhcDeliver():JSX.Element {
           </Grid>
 
           {/* TODO -- IPAD DRAWINGS  */}
+
+          <Grid container paddingTop={3}>
+            <Grid item xs={12}>
+              <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
+                Mid-Fidelity Wireframes
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={2} paddingBottom={5}>
+            <Grid item xs={12}>
+              <Typography variant="h6">
+                A mid-fidelity prototype is a design representation that strikes a balance between low-fidelity sketches and high-fidelity, detailed mockups, offering a moderately detailed view of the user interface and interactions. I created my wireframes in Figma which helped bring more clarity to the website.              
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container>
+            {
+              photoArray.map((image) => {
+                const designImage = cld.image(image)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={3} paddingX={3} paddingBottom={4}>
+                    <img src={designImage} alt={designImage} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
+
+          <Grid container paddingTop={3}>
+            <Grid item xs={12}>
+              <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
+                Style Guide
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={2} paddingBottom={5}>
+            <Grid item xs={12}>
+              <Typography variant="h6">
+                Before moving onto my high fidelity prototype, I quickly laid out a style guide to help keep the visual design cohesive.              
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={2} paddingBottom={5}>
+            <Grid item xs={12}>
+              <Typography variant="h6">
+                After finalizing the color palette for the website, I conducted a survey to gather user perceptions of the emotional tone conveyed by each color in the user interface. The goal was to establish brand attributes—distinct characteristics that users should associate with AHC. These attributes would guide design choices and be  reflected in my high-fidelity prototype.              
+              </Typography>
+              <br/>
+              <Typography variant="h6">
+                I aimed to guarantee that my design resonated with the brand's intended attributes.              
+              </Typography>
+            </Grid>
+          </Grid>
+
+          {/* Color Squares */}
+          <Grid container>
+            {
+              colorSquares.map((square) => {
+                return (
+                  <Grid item xs={2} sx={{background: square.color}} paddingY={8}>
+                    <Typography 
+                      variant="h6" 
+                      sx={{color: square.white ? "white" : "black"}} 
+                      textAlign={"center"}
+                      fontWeight={700}
+                    >
+                      {square.title}
+                    </Typography>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
+
+          <Grid container paddingTop={3}>
+            <Grid item xs={12}>
+              <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
+                Hi-Fidelity Wireframes
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={2} paddingBottom={5}>
+            <Grid item xs={12}>
+              <Typography variant="h6">
+                I was then able to shift to crafting the high-fidelity prototype, incorporating the evolving elements of the website. I am actively collaborating on this project with the director, incorporating their preferences, and anticipate completing the full design within the next couple of months. The design is not at all complete, but I’m excited to continue working on this project and showcasing the final results.               
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={2} paddingBottom={5}>
+            {
+              hiWireFrames.map((wireFrame) => {
+                const wireFrameImage = cld.image(wireFrame)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={4} padding={2}>
+                    <img src={wireFrameImage} alt={wireFrameImage} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
 
         </Container>
