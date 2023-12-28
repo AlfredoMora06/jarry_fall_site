@@ -1,9 +1,11 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Grid, Typography } from '@mui/material'
 import {Cloudinary} from "@cloudinary/url-gen"
 import { format } from "@cloudinary/url-gen/actions/delivery"
 import { auto } from "@cloudinary/url-gen/qualifiers/format"
 import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
 import { quality } from "@cloudinary/url-gen/actions/delivery"
+//@ts-ignore
+import pencilOutline from "../../assets/pencilOutline.svg"
 
 
 export default function AhcDeliver():JSX.Element {
@@ -56,6 +58,33 @@ export default function AhcDeliver():JSX.Element {
     'jarry_fall/AHC/sg1byncuwqh1nli0swgy',
     'jarry_fall/AHC/i166a1ghcaschbq6uxcp',
     'jarry_fall/AHC/tx7kwbt2cow7ktli38dy'
+  ]
+
+  const colorCircles: {title: string, color: string}[] = [
+    {
+      title: "Gradient",
+      color: "-webkit-linear-gradient(#F98080, #9B1D1D)",
+    },
+    {
+      title: "#9C1818",
+      color: "#9C1818",
+    },
+    {
+      title: "#4F0202",
+      color: "#4F0202",
+    },
+    {
+      title: "#CB9D72",
+      color: "#CB9D72",
+    },
+    {
+      title: "#F6C58C",
+      color: "#F6C58C",
+    },
+    {
+      title: "#FFF0DE",
+      color: "#FFF0DE",
+    }
   ]
 
   return (
@@ -141,7 +170,7 @@ export default function AhcDeliver():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={2} paddingBottom={5}>
+          <Grid container paddingTop={2}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 Before moving onto my high fidelity prototype, I quickly laid out a style guide to help keep the visual design cohesive.              
@@ -149,7 +178,50 @@ export default function AhcDeliver():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={2} paddingBottom={5}>
+          <Grid container paddingTop={4}>
+            <Grid item xs={12} md={9} container>
+              {
+                colorCircles.map((circle) => {
+                  return(
+                    <Grid item xs={6} md={2} container justifyContent={"center"}>
+                      <Box style={{background: circle.color, width: 100, height: 240, borderRadius: 100}} boxShadow={10}/>
+                      <Typography sx={{color: "#636363"}} paddingY={3}>{circle.title}</Typography>
+                      <Box style={{background: circle.color, width: 100, height: 100, borderRadius: 100 }} boxShadow={10}/>
+                    </Grid>
+                  )
+                })
+              }
+            </Grid>
+            <Grid item xs={12} md={3} container justifyContent={"center"}>
+              <img src={pencilOutline} alt={pencilOutline} style={{width: "70%", objectFit: "contain"}}/>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={5}>
+            <Grid item xs={12} paddingBottom={5}>
+              <Typography variant="h1" sx={{color: "#636363"}} fontWeight={700}>Inter</Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5} marginRight={5}>
+              <Typography variant="h2" fontWeight={400} align='center'>Aa</Typography>
+              <Typography variant="h5" fontWeight={400} align='center'>Inter Regular</Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5} marginRight={5}>
+              <Typography variant="h2" fontWeight={500} align='center'>Aa</Typography>
+              <Typography variant="h5" fontWeight={500} align='center'>Inter Medium</Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5} marginRight={5}>
+              <Typography variant="h2" fontWeight={600} align='center'>Aa</Typography>
+              <Typography variant="h5" fontWeight={600} align='center'>Inter Semi Bold</Typography>
+            </Grid>
+            <Grid item xs={6} md={1.5} marginRight={5}>
+              <Typography variant="h2" fontWeight={700} align='center'>Aa</Typography>
+              <Typography variant="h5" fontWeight={700} align='center'>Inter</Typography>
+              <Typography variant="h5" fontWeight={700} align='center'>Bold</Typography>
+            </Grid>
+          </Grid>
+
+
+          <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 After finalizing the color palette for the website, I conducted a survey to gather user perceptions of the emotional tone conveyed by each color in the user interface. The goal was to establish brand attributes—distinct characteristics that users should associate with AHC. These attributes would guide design choices and be  reflected in my high-fidelity prototype.              
@@ -166,7 +238,7 @@ export default function AhcDeliver():JSX.Element {
             {
               colorSquares.map((square) => {
                 return (
-                  <Grid item xs={2} sx={{background: square.color}} paddingY={8}>
+                  <Grid item xs={6} md={2} sx={{background: square.color}} paddingY={8}>
                     <Typography 
                       variant="h6" 
                       sx={{color: square.white ? "white" : "black"}} 
