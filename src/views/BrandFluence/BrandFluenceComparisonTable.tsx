@@ -10,13 +10,14 @@ import ClearIcon from '@mui/icons-material/Clear'
 import { Typography } from '@mui/material'
 
 //@ts-ignore
-import BeeSafeApp from "../../assets/Beesafe-app.png"
+import BrandFluence from "../../assets/Brandfluence-app.png"
 //@ts-ignore
-import CitizenApp from "../../assets/Citizen-app.png"
+import SocialLadder from "../../assets/SocialLadder-app.png"
 //@ts-ignore
-import Life360 from "../../assets/Life360-app.png"
+import Clever from "../../assets/Clever-app.png"
 //@ts-ignore
-import Noonlight from "../../assets/Noonlight-app.png"
+import Skeepers from "../../assets/Skeepers-app.png"
+
 
 
 function createData(
@@ -25,70 +26,52 @@ function createData(
   panic: any,
   liveVid: any,
   location: any,
-  safety: any,
-  community: any,
-  direct: any,
 ) {
-  return { name, safe, panic, liveVid, location, safety, community, direct}
+  return { name, safe, panic, liveVid, location}
 }
 
 const rows = [
   createData(
-    <img src={BeeSafeApp} alt="BeeSafeApp" style={{width: "100%", objectFit: "contain"}}/>, 
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
+    <img src={BrandFluence} alt="BrandFluence" style={{width: "100%", objectFit: "contain"}}/>,
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
   ),
   createData(
-    <img src={CitizenApp} alt="CitizenApp" style={{width: "100%", objectFit: "contain"}}/>, 
+    <img src={SocialLadder} alt="SocialLadder" style={{width: "100%", objectFit: "contain"}}/>,   
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
   ),
   createData(
-    <img src={Life360} alt="Life360" style={{width: "100%", objectFit: "contain"}}/>, 
+    <img src={Clever} alt="Clever" style={{width: "100%", objectFit: "contain"}}/>,
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
   ),
   createData(
-    <img src={Noonlight} alt="Noonlight" style={{width: "100%", objectFit: "contain"}}/>,  
+    <img src={Skeepers} alt="Skeepers" style={{width: "100%", objectFit: "contain"}}/>,
+    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
+    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
     <CheckIcon sx={{color: "#10991D", fontWeight: 900, fontSize: 40}}/>, 
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
-    <ClearIcon sx={{color: "#A62626", fontWeight: 900, fontSize: 40}}/>,
   ),
 ];
 
-export default function ComparisonCheckTable() {
+export default function BrandFluenceComparisonTable() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Safest Map Route</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Panic Button</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Community Live Video Incident</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>24/7 Location Share</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Safety Challenges / Gamification</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Community Bulletin Board</Typography></TableCell>
-            <TableCell align="center"><Typography fontWeight={700}>Direct Messaging</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Redeem Points</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Gain Rewards</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Turn Social Media Engagement Into Rewards</Typography></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>Beneficial For All Users</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -104,9 +87,6 @@ export default function ComparisonCheckTable() {
               <TableCell align="center">{row.panic}</TableCell>
               <TableCell align="center">{row.liveVid}</TableCell>
               <TableCell align="center">{row.location}</TableCell>
-              <TableCell align="center">{row.safety}</TableCell>
-              <TableCell align="center">{row.community}</TableCell>
-              <TableCell align="center">{row.direct}</TableCell>
             </TableRow>
           ))}
         </TableBody>

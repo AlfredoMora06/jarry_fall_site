@@ -53,7 +53,7 @@ export default function MyWork():JSX.Element {
                 <Grid item paddingBottom={10} xs={12} md={8}>
                   <Button
                     onClick={() => {
-                      navigate(`/0/projects/${params}`, {state: project})
+                      navigate(`/0/work/${params}`, {state: project})
                       window.scrollTo(0, 0)
                     }}
                     variant="text" 

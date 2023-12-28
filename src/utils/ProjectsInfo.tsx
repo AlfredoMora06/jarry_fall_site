@@ -8,5 +8,10 @@ export const projects = [
     title: "BeeSafe App",
     params: "ahc",
     image: "jarry_fall/edj4p1dibk8mncbi7d7h",
+  },
+  {
+    title: "BrandFluence",
+    params: "brandfluence",
+    image: "jarry_fall/g1fspr2s3bvljajk6qpk"
   }
 ]
