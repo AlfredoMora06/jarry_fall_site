@@ -12,6 +12,6 @@ export const projects = [
   {
     title: "BrandFluence",
     params: "brandfluence",
-    image: "jarry_fall/g1fspr2s3bvljajk6qpk"
+    image: "jarry_fall/ffwsjfeyi1gz50jhhpul"
   }
 ]

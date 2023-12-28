@@ -6,26 +6,28 @@ import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
 import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 
-export default function Define():JSX.Element {
+export default function BrandFluenceDefine():JSX.Element {
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
-  const beeCard = cld.image('jarry_fall/xyofhplneg3o1smlfdns')
+  const valuePropositionChart = cld.image('jarry_fall/BrandFluence/okefzjlrjagv7zuss5hg')
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()
 
-  const userScenario = cld.image('jarry_fall/z0i4h9any9gl5by3ly86')
+  const designImage = cld.image('jarry_fall/BrandFluence/uysszojb7s2soajajjye')
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()
 
-  const valuePropositionChart = cld.image('jarry_fall/omw8oercyenu6exjuwz2')
-    .delivery(quality(qualityAuto()))
-    .delivery(format(auto()))
-    .toURL()
+  const threePeopleCardImages = [
+    'jarry_fall/BrandFluence/wwrhacvpjwt7b4oeaa2s',
+    'jarry_fall/BrandFluence/ogatfcblhlsmba9kaoga',
+    'jarry_fall/BrandFluence/ltwzv7rdaslnnjscssfq'
+  ]
+
 
   return (
     <div style={{paddingBottom: 50}}>
-      <div style={{ backgroundColor: "#FFDF6C" }}>
+      <div style={{ backgroundColor: "#FFABAB" }}>
         <Grid container justifyContent={"center"}>
           <Grid item paddingY={10} >
             <Typography variant='h4' fontWeight={700} style={{color: "white"}}>
@@ -38,7 +40,7 @@ export default function Define():JSX.Element {
         <Container>
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant="h5" style={{ fontWeight: 700, color: "#E6B301", letterSpacing: ".2rem", }}>
+              <Typography variant="h5" style={{ fontWeight: 700, color: "#FFABAB", letterSpacing: ".2rem", }}>
                 VALUE PROPOSITION CHART
               </Typography>
             </Grid>
@@ -51,11 +53,7 @@ export default function Define():JSX.Element {
               </Typography>
               <br/>
               <Typography variant="h6">
-                Formulating this chart using our collected data allowed us to discern how we can enhance the value in users' experiences on CITIZEN, aligning with their objectives, motivations, and essential tasks.              
-              </Typography>
-              <br/>
-              <Typography variant="h6">
-                Moreover, we are actively empathizing with users during their peaks and troughs, enabling us to delve into the psychology influencing their behavior.              
+                Constructing this chart with our gathered data enabled us to identify ways to enrich users' experiences on social media, aligning with their engagement, goals, and authenticity.
               </Typography>
             </Grid>
           </Grid>
@@ -68,8 +66,8 @@ export default function Define():JSX.Element {
 
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant="h5" style={{ fontWeight: 700, color: "#E6B301", letterSpacing: ".2rem", }}>
-                USER PERSONA
+              <Typography variant="h5" style={{ fontWeight: 700, color: "#FFABAB", letterSpacing: ".2rem", }}>
+                USER PERSONAS
               </Typography>
             </Grid>
           </Grid>
@@ -77,36 +75,46 @@ export default function Define():JSX.Element {
           <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
               <Typography variant="h6">
-                To gain a more concrete understanding of our user and explore ways to assist them better, we crafted a user persona using our collected data.
+                To deepen our comprehension of the users and uncover opportunities for better assistance, we created user personas based on the insights gathered from our data.
               </Typography>
               <br/>
               <Typography variant="h6">
-                We pinpointed prevalent characteristics shared by our primary user to  develop Amelie.
+                We identified common characteristics shared among our three user profiles.
               </Typography>
             </Grid>
           </Grid>
-          
-          <Grid container paddingBottom={5}>
-            <Grid item xs={12} md={8}>
-              <img src={beeCard} alt="beeCard" style={{width: "100%"}}/>
-            </Grid>
+
+          <Grid container>
+            {
+              threePeopleCardImages.map((img) => {
+                const cardImg = cld.image(img)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={12} md={4} paddingX={3} paddingBottom={4}>
+                    <img src={cardImg} alt={cardImg} style={{width: "100%", maxHeight: 550, objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
           </Grid>
 
           <Grid container paddingBottom={10}>
             <Grid item xs={12}>
               <Typography variant="h6">
-                The significance of the user persona lies in its ability to provide a distinct identity to our primary user group, facilitating a more relatable and empathetic understanding of the challenges they encounter in their daily lives.              
+                The user persona holds importance in offering a unique identity to our main user group, fostering a deeper and more empathetic understanding of the obstacles they face in their everyday experiences.              
               </Typography>
               <br/>
               <Typography variant="h6">
-                Moreover, the user persona serves as a safeguard against unintentionally designing a solution that caters to our preferences rather than addressing the actual needs of the user.
+                Additionally, the user persona acts as a preventive measure, ensuring that our solution is not inadvertently tailored to our preferences but is rather designed to meet the authentic needs of the user.
               </Typography>
             </Grid>
           </Grid>
 
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant="h5" style={{ fontWeight: 700, color: "#E6B301", letterSpacing: ".2rem", }}>
+              <Typography variant="h5" style={{ fontWeight: 700, color: "#FFABAB", letterSpacing: ".2rem", }}>
                 USER SCENARIO
               </Typography>
             </Grid>
@@ -115,14 +123,14 @@ export default function Define():JSX.Element {
           <Grid container paddingY={2}>
             <Grid item xs={12}>
               <Typography variant="h6">
-                A user scenario is a brief, fictionalized situation describing how a potential user interacts with the app, helping designers understand user needs, motivations, and the context in which the app will be used.              
+                A user scenario is a brief, fictionalized situation describing how a potential user interacts with the app, helping designers understand user needs, motivations, and the context in which the app will be used. I crafted a scenario for a user named Ielani, an avid social media user seeking a method to save money when buying products promoted by influencers.
               </Typography>
             </Grid>
           </Grid>
 
-          <Grid container paddingBottom={5}>
-            <Grid item xs={12} md={8}>
-              <img src={userScenario} alt="beeCard" style={{width: "100%"}}/>
+          <Grid container paddingY={2} justifyContent={"center"}>
+            <Grid item xs={12} md={6} container justifyContent={"center"}>
+              <img src={designImage} alt={designImage} style={{width: "100%", objectFit: "contain"}}/>
             </Grid>
           </Grid>
         </Container>
