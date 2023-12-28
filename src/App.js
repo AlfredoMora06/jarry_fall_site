@@ -6,6 +6,8 @@ import About from "./views/About"
 import Fun from "./views/Fun"
 import BeeSafe from "./views/BeeSafe"
 import AfricanHopeCommittee from "./views/AfricanHopeCommittee"
+import BrandFluence from "./views/BrandFluence"
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <Route path="/0/fun" element={<Fun />} />
         <Route path="/0/projects/beesafe" element={<BeeSafe />} />
         <Route path="/0/projects/ahc" element={<AfricanHopeCommittee />} />
+        <Route path="/0/projects/brandfluence" element={<BrandFluence />} />
         <Route path="*" element={<Home to="/0/home" replace />} />
       </Routes>
     </>
