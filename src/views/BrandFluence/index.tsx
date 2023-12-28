@@ -5,6 +5,8 @@ import Footer from "../../components/sections/Footer"
 import IntroBrandFluence from './IntroBrandFluence'
 import IntroBrandFluenceBackToTop from './BrandFluenceBackToTop'
 import BrandFluenceDiscover from './BrandFluenceDiscover'
+import BrandFluenceDefine from './BrandFluenceDefine'
+import BrandFluenceDevelop from './BrandFluenceDevelop'
 
 
 export default function BrandFluence():JSX.Element {
@@ -23,6 +25,8 @@ export default function BrandFluence():JSX.Element {
       />
     </div>
     <BrandFluenceDiscover />
+    <BrandFluenceDefine />
+    <BrandFluenceDevelop />
     <IntroBrandFluenceBackToTop topRef={topRef}/>
     <Footer />
   </>

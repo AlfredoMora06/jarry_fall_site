@@ -1,6 +1,11 @@
 import { Container, Grid, Typography } from '@mui/material'
-import BrandFluenceComparisonTable from './BrandFluenceComparisonTable'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
+import BrandFluenceComparisonTable from './BrandFluenceComparisonTable'
 //@ts-ignore
 import circleArrowsIcon from "../../assets/circleArrowsIcon.svg"
 //@ts-ignore
@@ -14,6 +19,8 @@ import handshakeIcon from "../../assets/handshakeIcon.svg"
 
 
 export default function BrandFluenceDiscover():JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+
   const quantDataArray = [
     {
       image: instagramIcon,
@@ -40,6 +47,15 @@ export default function BrandFluenceDiscover():JSX.Element {
       title: '100%',
       description: `Of our brands need a new strategy for active forms of engagement`
     }
+  ]
+
+  const observationImages = [
+    'jarry_fall/BrandFluence/dxbtrji2bwru6223xxws',
+    'jarry_fall/BrandFluence/khz5jgn4boardgpzcodt',
+    'jarry_fall/BrandFluence/jjtejasfhiomipp2kvbk',
+    'jarry_fall/BrandFluence/yso5q7tzp7n1aua8tlzo',
+    'jarry_fall/BrandFluence/p5fe8m5t05lqpahvmbif',
+    'jarry_fall/BrandFluence/p5fe8m5t05lqpahvmbif'
   ]
 
   return (
@@ -233,7 +249,21 @@ export default function BrandFluenceDiscover():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- Images */}
+          <Grid container>
+            {
+              observationImages.map((img) => {
+                const obsImg = cld.image(img)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={12} md={6} paddingX={3} paddingBottom={4}>
+                    <img src={obsImg} alt={obsImg} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
           <Grid container paddingTop={5}>
             <Grid item xs={12}>
