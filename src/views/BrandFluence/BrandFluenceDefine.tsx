@@ -129,7 +129,7 @@ export default function BrandFluenceDefine():JSX.Element {
           </Grid>
 
           <Grid container paddingY={2} justifyContent={"center"}>
-            <Grid item xs={12} md={6} container justifyContent={"center"}>
+            <Grid item xs={12} container justifyContent={"center"}>
               <img src={designImage} alt={designImage} style={{width: "100%", objectFit: "contain"}}/>
             </Grid>
           </Grid>

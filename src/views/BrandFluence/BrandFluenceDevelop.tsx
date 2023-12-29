@@ -8,7 +8,7 @@ import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 export default function BrandFluenceDevelop():JSX.Element {
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
-  const interactionDiagram = cld.image('jarry_fall/BrandFluence/xeyavazr6q3qsvpnr2ij')
+  const interactionDiagram = cld.image('jarry_fall/BrandFluence/m0novb8oelxnmjjjz9vb')
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()

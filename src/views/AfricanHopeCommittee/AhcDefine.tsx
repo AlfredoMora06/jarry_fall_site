@@ -118,7 +118,7 @@ export default function AhcDefine():JSX.Element {
               </li>
               <li>
                 <Typography variant="h6">
-                  Problem 2: Users are <strong style={{color: "#A62626"}}>disorientated</strong> when navigating through the website’s inconsistent content presentation. 
+                  Problem 2: Users are <strong style={{color: "#A62626"}}>disorientated</strong> when navigating through the website’s cluttered layout and inconsistent content presentation. 
                 </Typography>
               </li>
               <li>
