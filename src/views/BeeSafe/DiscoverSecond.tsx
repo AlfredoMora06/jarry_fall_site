@@ -1,4 +1,9 @@
 import { Container, Grid, Typography } from '@mui/material'
+import {Cloudinary} from "@cloudinary/url-gen"
+import { format } from "@cloudinary/url-gen/actions/delivery"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import { auto as qualityAuto} from "@cloudinary/url-gen/qualifiers/quality"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
 
 const pointArray = [
   "Designed for optimal user interaction, the panic button is boldly emphasized on the home page, ensuring both visibility and easy accessibility for users in any critical situation.",
@@ -9,6 +14,20 @@ const pointArray = [
 
 
 export default function DiscoverSecond():JSX.Element {
+  const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
+  const midWireFrames = [
+    'jarry_fall/BeeSafe/jl1akveidbhybyjhoow5',
+    'jarry_fall/BeeSafe/t4opmeqqll74wunmmbnt',
+    'jarry_fall/BeeSafe/j7d4tfii0yeeamxreutc',
+    'jarry_fall/BeeSafe/stpyeldldmstileh81p8',
+    'jarry_fall/BeeSafe/pbipjnx4ulrkfomimzjw',
+    'jarry_fall/BeeSafe/msam8ebd1gx2p871v7bm',
+    'jarry_fall/BeeSafe/prouulp8pgrepg53ebjp',
+    'jarry_fall/BeeSafe/zeib2zbhakxkmzarfnwm',
+    'jarry_fall/BeeSafe/ym03ph5epq0pr9lsm4pn',
+    'jarry_fall/BeeSafe/hes93rz3klpckzj1bign',
+    'jarry_fall/BeeSafe/kqshuofdlo82n3bsk19q'
+  ]
 
   return (
     <div>
@@ -119,9 +138,23 @@ export default function DiscoverSecond():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- WIREFRAMES */}
+          <Grid container paddingY={5} justifyContent={"center"}>
+            {
+              midWireFrames.map((img) => {
+                const midImage = cld.image(img)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={6} md={2.8} margin={1} container border={2} borderRadius={10}>
+                    <img src={midImage} alt={midImage} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
-          <Grid container paddingTop={4}>
+          <Grid container>
             <Grid item xs={12}>
               <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
                 Hi-Fidelity Wireframes
