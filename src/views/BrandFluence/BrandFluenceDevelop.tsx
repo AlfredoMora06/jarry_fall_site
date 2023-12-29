@@ -111,7 +111,7 @@ export default function BrandFluenceDevelop():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={3}>
+          <Grid container paddingTop={3} paddingBottom={5}>
             {
               highLevelCampaingImages.map((img) => {
                 const campaginImage = cld.image(img)
