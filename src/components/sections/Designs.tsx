@@ -103,7 +103,7 @@ export default function Designs():JSX.Element {
                         style={{
                           width: "100%", 
                           borderRadius: 50,
-                          minHeight: 445,
+                          minHeight: 455,
                           maxHeight: 500, 
                           objectFit: "contain", 
                           transition: "transform .2s"
