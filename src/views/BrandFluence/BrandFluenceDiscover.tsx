@@ -40,7 +40,7 @@ export default function BrandFluenceDiscover():JSX.Element {
     {
       image: rewardIcon,
       title: '90%',
-      description: `Of our user’s would appreciate rewards for engagement`
+      description: `Of our users would appreciate rewards for engagement`
     },
     {
       image: handshakeIcon,

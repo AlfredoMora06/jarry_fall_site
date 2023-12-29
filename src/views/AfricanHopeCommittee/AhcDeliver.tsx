@@ -21,6 +21,15 @@ export default function AhcDeliver():JSX.Element {
     'jarry_fall/AHC/xue8jss7w8whp4zpdkpw'
   ] 
 
+  const ipadDrawings = [
+    'jarry_fall/AHC/d6liifdijljyymiofgrc',
+    'jarry_fall/AHC/ai3t7gnnmaxw7t9mk8ct',
+    'jarry_fall/AHC/yrt7vt4ae8hxqgevqucl',
+    'jarry_fall/AHC/jfzabutah6mfkjzaycvk',
+    'jarry_fall/AHC/b3jhade44yry3g3s2dlr',
+    'jarry_fall/AHC/wm6oozelcjoo4mfxc8aw',
+  ]
+
   const colorSquares: {title: string, color: string, white: boolean}[] = [
     {
       title: "Playful",
@@ -128,7 +137,21 @@ export default function AhcDeliver():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- IPAD DRAWINGS  */}
+          <Grid container paddingTop={2} paddingBottom={5}>
+            {
+              ipadDrawings.map((img) => {
+                const ipadImage = cld.image(img)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={4} padding={2}>
+                    <img src={ipadImage} alt={ipadImage} style={{width: "100%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
           <Grid container paddingTop={3}>
             <Grid item xs={12}>

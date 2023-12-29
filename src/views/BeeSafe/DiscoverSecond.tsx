@@ -23,11 +23,17 @@ export default function DiscoverSecond():JSX.Element {
     'jarry_fall/BeeSafe/pbipjnx4ulrkfomimzjw',
     'jarry_fall/BeeSafe/msam8ebd1gx2p871v7bm',
     'jarry_fall/BeeSafe/prouulp8pgrepg53ebjp',
-    'jarry_fall/BeeSafe/zeib2zbhakxkmzarfnwm',
+    'jarry_fall/BeeSafe/sq2gg3hqn4wzfsjfb8dd',
     'jarry_fall/BeeSafe/ym03ph5epq0pr9lsm4pn',
     'jarry_fall/BeeSafe/hes93rz3klpckzj1bign',
     'jarry_fall/BeeSafe/kqshuofdlo82n3bsk19q'
   ]
+
+  const ipadDrawing = cld.image('jarry_fall/BeeSafe/jjgtw17j0aemk5v2u8xz')
+    .delivery(quality(qualityAuto()))
+    .delivery(format(auto()))
+    .toURL()
+
 
   return (
     <div>
@@ -90,7 +96,13 @@ export default function DiscoverSecond():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={4}>
+          <Grid container paddingTop={3} justifyContent={"center"}>
+            <Grid item xs={12} md={10}>
+              <img src={ipadDrawing} alt={ipadDrawing} style={{width: "100%", objectFit: "contain"}}/>
+            </Grid>
+          </Grid>
+
+          <Grid container paddingTop={3}>
             <Grid item xs={12}>
               <Typography variant="h5" style={{ fontWeight: 700, color: "black" }}>
                 Usability Testing

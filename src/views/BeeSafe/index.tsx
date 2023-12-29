@@ -23,7 +23,7 @@ export default function BeeSafe():JSX.Element {
         projectGoal={"To analyze an already existing app idea and then redirect the app into a new app idea. This app is based on fostering a community and depending on your “neighbor” for safety."}
         roles={["UI/UX Design", "UX Research", "Information Architecture"]}
         tools={["Figma", "Google Forms"]}
-        color={"E6B301"}
+        color={"#E6B301"}
       />
     </div>
     <Discover />
