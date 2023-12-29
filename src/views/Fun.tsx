@@ -10,6 +10,7 @@ export default function Fun():JSX.Element {
         style={{
           background: theme.palette.secondary.main,
           paddingBottom: 150,
+          height: "100vh"
         }}
       >
         <Navbar dark={false} />
