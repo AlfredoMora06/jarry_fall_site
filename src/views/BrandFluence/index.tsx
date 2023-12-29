@@ -7,6 +7,7 @@ import IntroBrandFluenceBackToTop from './BrandFluenceBackToTop'
 import BrandFluenceDiscover from './BrandFluenceDiscover'
 import BrandFluenceDefine from './BrandFluenceDefine'
 import BrandFluenceDevelop from './BrandFluenceDevelop'
+import BrandFluenceDiscoverSecond from './BrandFluenceDiscoverSecond'
 
 
 export default function BrandFluence():JSX.Element {
@@ -27,6 +28,7 @@ export default function BrandFluence():JSX.Element {
     <BrandFluenceDiscover />
     <BrandFluenceDefine />
     <BrandFluenceDevelop />
+    <BrandFluenceDiscoverSecond />
     <IntroBrandFluenceBackToTop topRef={topRef}/>
     <Footer />
   </>
