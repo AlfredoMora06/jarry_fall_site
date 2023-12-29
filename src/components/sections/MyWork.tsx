@@ -50,7 +50,7 @@ export default function MyWork():JSX.Element {
                 .toURL()
 
               return(
-                <Grid item paddingBottom={10} xs={12} md={8}>
+                <Grid item paddingBottom={10} xs={12} md={7}>
                   <Button
                     onClick={() => {
                       navigate(`/0/work/${params}`, {state: project})
