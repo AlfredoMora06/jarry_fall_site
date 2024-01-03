@@ -29,11 +29,19 @@ export default function DiscoverSecond():JSX.Element {
     'jarry_fall/BeeSafe/kqshuofdlo82n3bsk19q'
   ]
 
+  const hiWireFrames = [
+    'jarry_fall/BeeSafe/yl414tbbs8nkni2y3vfp',
+    'jarry_fall/BeeSafe/jhqrfj5bdqps5injxl0i',
+    'jarry_fall/BeeSafe/x8dexgxw4khmygmdvx9r',
+    'jarry_fall/BeeSafe/m3zay5eh0pnsx7snnryc',
+    'jarry_fall/BeeSafe/rurfdny59zttqx2dhffg',
+    'jarry_fall/BeeSafe/uqeegczdpqpqybqmtwen',
+  ]
+
   const ipadDrawing = cld.image('jarry_fall/BeeSafe/jjgtw17j0aemk5v2u8xz')
     .delivery(quality(qualityAuto()))
     .delivery(format(auto()))
     .toURL()
-
 
   return (
     <div>
@@ -174,7 +182,7 @@ export default function DiscoverSecond():JSX.Element {
             </Grid>
           </Grid>
 
-          <Grid container paddingTop={2} paddingBottom={15}>
+          <Grid container paddingTop={2} paddingBottom={3}>
             <Grid item xs={12}>
               <Typography variant="h6">
                 After thorough analysis of user feedback on our mid-fidelity prototype, we implemented minor adjustments, primarily focusing on the placement of headings, buttons, button labels, and navigation elements.            
@@ -186,7 +194,21 @@ export default function DiscoverSecond():JSX.Element {
             </Grid>
           </Grid>
 
-          {/* TODO -- WIREFRAMES */}
+          <Grid container>
+            {
+              hiWireFrames.map((wireFrame) => {
+                const wireFrameImage = cld.image(wireFrame)
+                  .delivery(quality(qualityAuto()))
+                  .delivery(format(auto()))
+                  .toURL()
+                return (
+                  <Grid item xs={6} md={4} paddingRight={5} justifyContent={"center"}>
+                    <img src={wireFrameImage} alt={wireFrameImage} style={{width: "80%", objectFit: "contain"}}/>
+                  </Grid>
+                )
+              })
+            }
+          </Grid>
 
         </Container>
 
