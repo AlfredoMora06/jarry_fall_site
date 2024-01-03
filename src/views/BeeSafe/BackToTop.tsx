@@ -36,7 +36,7 @@ export default function BackToTop({topRef}:BackToTopProps):JSX.Element {
          				}
 							}}
 							onClick={() => {
-								window.open("https://www.figma.com/proto/tpVI9cLDx880YIJi5AdTl6/BeeSafe?type=design&node-id=161-1772&t=833RfhAJX2bhuAWh-1&scaling=min-zoom&page-id=0%3A1&mode=design", "_blank")
+								window.open("https://www.figma.com/proto/tpVI9cLDx880YIJi5AdTl6/BeeSafe?type=design&node-id=221-396&t=5qlsTOKHLysx3CNh-0&scaling=min-zoom&page-id=0%3A1", "_blank")
 							}}
 						>
 							View Full Prototype Here
