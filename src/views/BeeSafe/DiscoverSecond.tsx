@@ -203,7 +203,7 @@ export default function DiscoverSecond():JSX.Element {
                   .toURL()
                 return (
                   <Grid item xs={6} md={4} paddingRight={5} justifyContent={"center"}>
-                    <img src={wireFrameImage} alt={wireFrameImage} style={{width: "80%", objectFit: "contain"}}/>
+                    <img src={wireFrameImage} alt={wireFrameImage} style={{width: "100%", objectFit: "contain"}}/>
                   </Grid>
                 )
               })
