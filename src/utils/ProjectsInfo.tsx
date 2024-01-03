@@ -2,12 +2,12 @@ export const projects = [
   {
     title: "BeeSafe App",
     params: "beesafe",
-    image: "jarry_fall/BeeSafe/mq7th01p3u0j9bvxgmtr",
+    image: "jarry_fall/zhfj1uvnzmrccpz2lrol",
   },
   {
     title: "AHC",
     params: "ahc",
-    image: "jarry_fall/AHC/my6fsazscjpw5uvteq24",
+    image: "jarry_fall/v3stwyqnrmtt8aer1e8n",
   },
   {
     title: "BrandFluence",
