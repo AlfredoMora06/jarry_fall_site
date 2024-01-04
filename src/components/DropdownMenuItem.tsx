@@ -48,10 +48,15 @@ export default function DropdownMenuItem({
     return (
       <MenuItem
         sx={{
-        '&.MuiMenuItem-root': {
-          justifyContent: 'center',
-          fontWeight: 700,
-        },
+          background: 'transparent',
+          '&.MuiMenuItem-root': {
+            justifyContent: 'center',
+            fontWeight: 700,
+          },
+          "&:hover": {
+            color: "#FE55A6",
+            background: "transparent"
+          }
        }}
         className={classes.menuItem}
         onClick={() => {
