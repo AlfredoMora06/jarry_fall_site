@@ -1,6 +1,18 @@
 import { Button, Menu, MenuItem, useTheme } from "@mui/material"
 import { useCallback, useRef } from "react"
 import { useNavigate } from "react-router-dom"
+import { Theme } from "@mui/material"
+import makeStyles from "@mui/styles/makeStyles"
+
+
+const useStyles = makeStyles<Theme>((theme) => ({
+  menuItem: {
+    "&.Mui-selected": {
+      color: "red",
+      backgroundColor: "turquoise",
+    }
+  },
+}))
 
 export type TMenuItem = {
   title: string;
@@ -20,6 +32,7 @@ export default function DropdownMenuItem({
   samePathname: boolean;
 }): JSX.Element {
   const navigate = useNavigate()
+  const classes = useStyles()
   const { title, subMenus } = menuItem
   const buttonRef = useRef<null | HTMLButtonElement>(null);
 
@@ -34,6 +47,13 @@ export default function DropdownMenuItem({
   const subMenusNodes = subMenus?.map((subMenuItem) => {
     return (
       <MenuItem
+        sx={{
+        '&.MuiMenuItem-root': {
+          justifyContent: 'center',
+          fontWeight: 700,
+        },
+       }}
+        className={classes.menuItem}
         onClick={() => {
           navigate(subMenuItem.pathname)
         }}
@@ -76,6 +96,11 @@ export default function DropdownMenuItem({
         {title}
       </Button>
       <Menu
+        sx={{
+          "& .MuiList-root": {
+            background: "#FFEAF4"
+          }
+        }}
         PaperProps={{
           onMouseEnter: () => {
             showSubMenu()
@@ -87,6 +112,11 @@ export default function DropdownMenuItem({
         anchorEl={buttonRef.current}
         open={menuShowingDropdown === menuItem.title}
         onClose={closeSubMenu}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         {subMenusNodes}
       </Menu>
