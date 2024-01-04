@@ -9,7 +9,7 @@ export default function Work():JSX.Element {
       <div
         style={{
           background: theme.palette.secondary.main,
-          paddingBottom: 100,
+          paddingBottom: 80,
         }}
       >
         <Navbar dark={false} />
