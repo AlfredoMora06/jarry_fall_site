@@ -47,7 +47,7 @@ export default function Skills():JSX.Element {
       <Grid item xs={12} paddingTop={2}>
         {textArray.map((obj) => {
           return (
-            <Grid paddingBottom={3}>
+            <Grid paddingBottom={3} key={obj.title}>
               <Typography display="inline" fontWeight={700} variant="h6">{obj.title}</Typography>
               <Typography display="inline" variant="h6">{obj.text}</Typography>
             </Grid>
