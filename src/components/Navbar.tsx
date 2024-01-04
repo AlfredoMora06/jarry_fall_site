@@ -14,6 +14,7 @@ import { Grid } from "@mui/material"
 import { getProfile } from "../store/features/profileSlice"
 //@ts-ignore
 import ResumePdf from "../assets/Jarry_Fall_Resume.pdf"
+import DropdownMenuItem, { TMenuItem } from "./DropdownMenuItem"
 
 
 type NavbarProps = {
@@ -27,12 +28,31 @@ export default function Navbar (
   const {i18n} = useTranslation("common")
 
   const pages = [
-    { title: "Home", link: "../0/home" },
+    { title: "Home", link: "../" },
     { title: "Work", link: "../0/work" },
     { title: "About", link: "../0/about" },
     { title: "Fun", link: "../0/fun" },
-
   ]
+
+  const workPages: TMenuItem = { 
+    title: "Work", 
+    pathname: "../0/work",
+    subMenus: [
+      {
+        title: "BeeSafe App",
+        pathname: "../0/work/beesafe"
+      },
+      {
+        title: "African Hope Commitee Inc.",
+        pathname: "../0/work/ahc"
+      },
+      {
+        title: "BrandFluence",
+        pathname: "../0/work/brandfluence"
+      }
+    ]
+  }
+  
   
   const location = useLocation()  
   const navigate = useNavigate()
@@ -44,6 +64,12 @@ export default function Navbar (
       i18n.changeLanguage(profile.language).then(/*intentionally blank*/)
     }
   }, [i18n, profile.language])
+
+  const [menuShowingDropdown, setMenuShowingDropdown] = React.useState("");
+
+  const handleMenuShowingDropdownChange = React.useCallback((menuTitle: string) => {
+    setMenuShowingDropdown(menuTitle);
+  }, [])
 
   return (
     <AppBar
@@ -57,7 +83,7 @@ export default function Navbar (
             variant="h2"
             noWrap
             component="a"
-            href="/0/home"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -74,6 +100,20 @@ export default function Navbar (
             <Grid container justifyContent={"flex-end"}>
               {pages.map((page, index) => {
                 const samePathname = location.pathname === page.link.slice(2)
+
+                if(page.title === "Work"){
+                  return (
+                    <Grid item key={index} style={{ marginBottom: 2, marginTop: 2 }}>
+                      <DropdownMenuItem
+                        menuItem={workPages}
+                        menuShowingDropdown={menuShowingDropdown}
+                        setMenuShowingDropdown={handleMenuShowingDropdownChange}
+                        samePathname={samePathname}
+                      />
+                    </Grid>
+                  )
+                }
+                
                 return (
                   <Grid item key={index} style={{ marginBottom: 2, marginTop: 2 }}>
                     <Button
