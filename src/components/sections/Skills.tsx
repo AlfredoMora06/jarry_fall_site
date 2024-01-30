@@ -36,11 +36,18 @@ const textArray = [
 ]
 
 
-export default function Skills():JSX.Element {
+export default function Skills({isMobile}: {isMobile: boolean}):JSX.Element {
   return (
     <Grid container paddingTop={5}>
       <Grid item xs={12}>
-        <Typography variant="h1" fontWeight={400} style={{color: "#FE55A6"}} fontSize={80} fontFamily={"Kaisei Decol"}>
+        <Typography 
+          variant="h1"
+          fontWeight={400} 
+          style={{color: "#FE55A6"}} 
+          fontSize={80} 
+          fontFamily={"Kaisei Decol"}
+          align={isMobile ? 'center' : 'left'}
+        >
           Skills
         </Typography>
       </Grid>

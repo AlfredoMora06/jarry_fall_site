@@ -8,13 +8,15 @@ import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
-import { Grid } from "@mui/material"
+import MenuIcon from "@mui/icons-material/Menu"
+import { Grid, IconButton, List, ListItem, ListItemButton, ListItemText, SwipeableDrawer } from "@mui/material"
 
 
 import { getProfile } from "../store/features/profileSlice"
 //@ts-ignore
 import ResumePdf from "../assets/Jarry_Fall_Resume.pdf"
 import DropdownMenuItem, { TMenuItem } from "./DropdownMenuItem"
+import theme from "../theme"
 
 
 type NavbarProps = {
@@ -26,6 +28,16 @@ export default function Navbar (
 ): JSX.Element {
   const profile = useSelector(getProfile)
   const {i18n} = useTranslation("common")
+  const [drawer, setDrawer] = React.useState(false)
+
+  const toggleDrawer = (open: boolean) =>  (event: React.KeyboardEvent | React.MouseEvent) => { 
+    setDrawer(open)
+  }
+
+  const handleCloseNavMenuRedirect = (link: string) => {
+    navigate(link)
+    toggleDrawer(false)
+  }
 
   const pages = [
     { title: "Home", link: "../" },
@@ -33,6 +45,25 @@ export default function Navbar (
     { title: "About", link: "../0/about" },
     { title: "Fun", link: "../0/fun" },
   ]
+
+  const list = () => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {pages.map((page) => (
+          <ListItem key={page.title} disablePadding>
+            <ListItemButton onClick={() => {handleCloseNavMenuRedirect(page.link)}}>
+              <ListItemText primary={page.title} sx={{color: "white"}}/>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  )
 
   const workPages: TMenuItem = { 
     title: "Work", 
@@ -78,6 +109,29 @@ export default function Navbar (
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={toggleDrawer(true)}
+              style={{color: dark ? 'white': theme.palette.primary.light, fontWeight: 700}}
+            >
+              <MenuIcon />
+            </IconButton>
+            <SwipeableDrawer
+              PaperProps={{
+                sx: { width: "80%" , backgroundColor: "#FF9DCC"},
+              }}
+              open={drawer}
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
+            >
+              {list()}
+            </SwipeableDrawer>
+          </Box>
+
           <Typography
             color="primary"
             variant="h2"

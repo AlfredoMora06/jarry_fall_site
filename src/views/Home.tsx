@@ -10,7 +10,7 @@ export default function Home():JSX.Element {
           height: "100vh" 
         }}
       >
-        <Navbar dark={false} />
+        <Navbar dark={true} />
         <JarryHere />
       </div>
     </>
