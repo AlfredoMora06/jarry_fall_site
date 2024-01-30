@@ -67,16 +67,23 @@ const useStyles = makeStyles<Theme>(() => ({
 
 
 
-export default function Timeline():JSX.Element {
+export default function Timeline({isMobile}: {isMobile: boolean}):JSX.Element {
   const classes = useStyles()
 
   return (
     <Grid container paddingTop={15}>
       <Grid item xs={12} md={3}>
-        <Typography variant="h1" fontWeight={400} style={{color: "#000000"}} fontSize={40}>
+        <Typography 
+          variant="h1" 
+          fontWeight={400} 
+          style={{color: "#000000"}} 
+          fontSize={40} 
+          align={isMobile ? 'center' : 'left'}
+          pb={isMobile ? 1 : 0}
+        >
           Background 🎓
         </Typography>
-        <Typography variant="h6" fontSize={18}>
+        <Typography variant="h6" fontSize={18} align={isMobile ? 'center' : 'left'} pb={isMobile ? 1 : 0}>
           A snippet about my educational and professional background.
         </Typography>
       </Grid>

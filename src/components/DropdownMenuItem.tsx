@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom"
 
 
 export type TMenuItem = {
-  title: string;
-  pathname: string;
-  subMenus?: TMenuItem[];
+  title: string
+  pathname: string
+  subMenus?: TMenuItem[]
 };
 
 export default function DropdownMenuItem({

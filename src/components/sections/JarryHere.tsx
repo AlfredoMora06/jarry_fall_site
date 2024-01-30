@@ -1,6 +1,7 @@
 import React from "react"
 import Box from "@mui/material/Box"
 import { Container, Fade, Grid, Typography } from "@mui/material"
+
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
@@ -9,7 +10,6 @@ import { getProfile } from "../../store/features/profileSlice"
 
 export default function JarryHere():JSX.Element {
   const profile = useSelector(getProfile)
-
   const {i18n} = useTranslation("common")
 
   React.useEffect(() => {
@@ -26,7 +26,7 @@ export default function JarryHere():JSX.Element {
         <Grid container justifyContent={"center"}>
           <Grid item container paddingBottom={4} xs={12} justifyContent={"center"}>
             <Fade in={true} timeout={2000}>
-              <Typography variant="h1" style={{color: "white"}} fontWeight={700}>
+              <Typography variant="h1" style={{color: "white"}} fontWeight={700} align="center">
                 jarry fall
               </Typography>
             </Fade>

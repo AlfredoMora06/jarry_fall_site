@@ -68,7 +68,7 @@ export default function Designs():JSX.Element {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container justifyContent={"center"}>
           <Grid item paddingBottom={10}>
-            <Typography variant="h1" fontWeight={700} color={theme.palette.primary.light} fontSize={80}>
+            <Typography variant="h1" fontWeight={700} color={theme.palette.primary.light} fontSize={80} align="center">
               My Designs
             </Typography>
           </Grid>
