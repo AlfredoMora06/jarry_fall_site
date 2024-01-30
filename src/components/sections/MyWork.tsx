@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box"
-import { Container, Grid, Typography, Theme, Fab} from "@mui/material"
+import { Container, Grid, Typography, Theme, Fab, useTheme, useMediaQuery} from "@mui/material"
 import { makeStyles } from "@mui/styles"
 import { useNavigate } from "react-router-dom"
 import {Cloudinary} from "@cloudinary/url-gen"
@@ -27,6 +27,8 @@ const useStyles = makeStyles<Theme>(() => ({
 export default function MyWork():JSX.Element {
   const classes = useStyles()
   const navigate = useNavigate()
+  const muiTheme = useTheme()
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down("md"))
 
   return (
     <Container>
@@ -79,26 +81,29 @@ export default function MyWork():JSX.Element {
                   container 
                   sx={{ background: project.color, borderRadius: 10}}
                 >
-                  <Grid item xs={8} container>
-                    { !! project.mainImage
-                      ? <Grid item container alignItems={"center"} className={classes.button}>
-                        <img loading="lazy" style={{width: "90%", transition: "transform .2s"}} src={cardImage} alt={project.mainImage}/>
-                      </Grid>
-                      : project.images != null ? <>
-                        <Grid item xs={4} container alignItems={project.images[0].align}>
-                          <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={projectImage1} alt={"firstImage"}/>
+                  { isMobile
+                    ? <></>
+                    : <Grid item xs={8} container>
+                      { !! project.mainImage
+                        ? <Grid item container alignItems={"center"} className={classes.button}>
+                          <img loading="lazy" style={{width: "90%", transition: "transform .2s"}} src={cardImage} alt={project.mainImage}/>
                         </Grid>
-                        <Grid item xs={4} container alignItems={project.images[1].align} marginLeft={-10}>
-                          <img loading="lazy" style={{width: "150%", transition: "transform .2s"}} src={projectImage2} alt={"secondImage"}/>
-                        </Grid>
-                        <Grid item xs={4} container alignItems={project.images[2].align}>
-                          <img loading="lazy" style={{width: "150%", transition: "transform .2s"}} src={projectImage3} alt={"thirdImage"}/>
-                        </Grid>
-                      </>
-                      : <></>
-                    }
-                  </Grid>
-                  <Grid item xs={4} marginY={3}>
+                        : project.images != null ? <>
+                          <Grid item xs={4} container alignItems={project.images[0].align}>
+                            <img loading="lazy" style={{width: "100%", transition: "transform .2s"}} src={projectImage1} alt={"firstImage"}/>
+                          </Grid>
+                          <Grid item xs={4} container alignItems={project.images[1].align} marginLeft={-10}>
+                            <img loading="lazy" style={{width: "150%", transition: "transform .2s"}} src={projectImage2} alt={"secondImage"}/>
+                          </Grid>
+                          <Grid item xs={4} container alignItems={project.images[2].align}>
+                            <img loading="lazy" style={{width: "150%", transition: "transform .2s"}} src={projectImage3} alt={"thirdImage"}/>
+                          </Grid>
+                        </>
+                        : <></>
+                      }
+                    </Grid>
+                  }
+                  <Grid item xs={12} md={4} marginY={3}>
                     <Box sx={{ background: "white"}} borderRadius={10} paddingY={3} paddingX={2}>
                       <Typography align="center" fontWeight={700} fontSize={25}>{title}</Typography>
                       <Typography align="center" sx={{color: "#585858", paddingY: 1}} fontSize={16}>{project.subtitle}</Typography>
