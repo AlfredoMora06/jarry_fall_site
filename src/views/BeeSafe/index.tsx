@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import { useTheme, useMediaQuery } from "@mui/material"
+
 
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/sections/Footer"
@@ -12,6 +14,8 @@ import DiscoverSecond from './DiscoverSecond'
 
 export default function BeeSafe():JSX.Element {
   const topRef = useRef<any>()
+  const muiTheme = useTheme()
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down("md"))
 
   return <>
     <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 50 }} ref={topRef}>
@@ -24,9 +28,10 @@ export default function BeeSafe():JSX.Element {
         roles={["UI/UX Design", "UX Research", "Information Architecture"]}
         tools={["Figma", "Google Forms"]}
         color={"#E6B301"}
+        isMobile={isMobile}
       />
     </div>
-    <Discover />
+    <Discover isMobile={isMobile} />
     <Define />
     <BeeSafeDevelop />
     <DiscoverSecond />

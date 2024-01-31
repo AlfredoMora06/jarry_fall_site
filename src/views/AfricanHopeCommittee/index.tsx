@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useTheme, useMediaQuery } from "@mui/material"
 
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/sections/Footer"
@@ -12,6 +13,8 @@ import AhcDeliver from './AhcDeliver'
 
 export default function AfricanHopeCommittee():JSX.Element {
   const topRef = useRef<any>()
+  const muiTheme = useTheme()
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down("md"))
 
   return <>
     <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 50 }} ref={topRef}>
@@ -24,12 +27,13 @@ export default function AfricanHopeCommittee():JSX.Element {
         roles={["UI/UX Design", "UX Research", "Information Architecture", "Wireframing"]}
         tools={["Figma", "Google Forms", "React Framework", "Typescript", "Material-UI"]}
         color={"#BD2024"}
+        isMobile={isMobile}
       />
     </div>
     <AhcDiscover />
     <AhcDefine />
     <AhcDevelop />
-    <AhcDeliver />
+    <AhcDeliver isMobile={isMobile}/>
     <AhcBackToTop topRef={topRef}/>
     <Footer />
   </>

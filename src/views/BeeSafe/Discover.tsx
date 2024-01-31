@@ -48,7 +48,7 @@ const quantDataArray = [
 ]
 
 
-export default function Discover():JSX.Element {
+export default function Discover({isMobile}:{isMobile: boolean}):JSX.Element {
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
   const phoneImage = cld.image('jarry_fall/kdff1al0d4yti5og1vz3')
     .delivery(quality(qualityAuto()))
@@ -142,7 +142,7 @@ export default function Discover():JSX.Element {
             </Grid>
           </Grid>
 
-          <ComparisonCheckTable />
+          <ComparisonCheckTable isMobile={isMobile}/>
 
           <Grid container paddingTop={5} paddingBottom={5}>
             <Grid item xs={12}>
