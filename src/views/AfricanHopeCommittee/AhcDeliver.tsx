@@ -8,7 +8,7 @@ import { quality } from "@cloudinary/url-gen/actions/delivery"
 import pencilOutline from "../../assets/pencilOutline.svg"
 
 
-export default function AhcDeliver():JSX.Element {
+export default function AhcDeliver({isMobile}:{isMobile: boolean}):JSX.Element {
   const cld = new Cloudinary({cloud: {cloudName: process.env.REACT_APP_CLOUDINARY}})
   const photoArray = [
     'jarry_fall/AHC/dr0kcmkctpsitcvj8n9b',
@@ -205,38 +205,52 @@ export default function AhcDeliver():JSX.Element {
             <Grid item xs={12} md={9} container>
               {
                 colorCircles.map((circle) => {
-                  return(
+                  return !isMobile ? (
                     <Grid item xs={6} md={2} container justifyContent={"center"}>
                       <Box style={{background: circle.color, width: 100, height: 240, borderRadius: 100}} boxShadow={10}/>
                       <Typography sx={{color: "#636363"}} paddingY={3}>{circle.title}</Typography>
                       <Box style={{background: circle.color, width: 100, height: 100, borderRadius: 100 }} boxShadow={10}/>
                     </Grid>
+                  ) : (
+                    <>
+                      <Grid item xs={6} container marginBottom={3}>
+                        <Grid item xs={12} container justifyContent={'center'}>
+                          <Box style={{background: circle.color, width: 100, height: 240, borderRadius: 100}} boxShadow={10}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Typography sx={{color: "#636363"}} paddingTop={3} paddingBottom={2} fontWeight={700} align='center'>{circle.title}</Typography>
+                        </Grid>
+                        <Grid item xs={12} container justifyContent={'center'}>
+                          <Box style={{background: circle.color, width: 100, height: 100, borderRadius: 100 }} boxShadow={10}/>
+                        </Grid>
+                      </Grid>
+                    </>
                   )
                 })
               }
             </Grid>
-            <Grid item xs={12} md={3} container justifyContent={"center"}>
-              <img src={pencilOutline} alt={pencilOutline} style={{width: "70%", objectFit: "contain"}}/>
+            <Grid item xs={12} md={3} container justifyContent={"center"} pt={isMobile ? 6 : 0}>
+              <img src={pencilOutline} alt={pencilOutline} style={{width: isMobile ? "40%" : "70%", objectFit: "contain"}}/>
             </Grid>
           </Grid>
 
           <Grid container paddingTop={5}>
-            <Grid item xs={12} paddingBottom={5}>
+            <Grid item xs={12} paddingBottom={5} container justifyContent={isMobile ? 'center' : 'flex-start'}>
               <Typography variant="h1" sx={{color: "#636363"}} fontWeight={700}>Inter</Typography>
             </Grid>
-            <Grid item xs={6} md={1.5} marginRight={5}>
+            <Grid item xs={12} md={1.5} marginRight={isMobile ? 0 : 5} marginBottom={isMobile ? 2 : 0}>
               <Typography variant="h2" fontWeight={400} align='center'>Aa</Typography>
               <Typography variant="h5" fontWeight={400} align='center'>Inter Regular</Typography>
             </Grid>
-            <Grid item xs={6} md={1.5} marginRight={5}>
+            <Grid item xs={12} md={1.5} marginRight={isMobile ? 0 : 5} marginBottom={isMobile ? 2 : 0}>
               <Typography variant="h2" fontWeight={500} align='center'>Aa</Typography>
               <Typography variant="h5" fontWeight={500} align='center'>Inter Medium</Typography>
             </Grid>
-            <Grid item xs={6} md={1.5} marginRight={5}>
+            <Grid item xs={12} md={1.5} marginRight={isMobile ? 0 : 5} marginBottom={isMobile ? 2 : 0}>
               <Typography variant="h2" fontWeight={600} align='center'>Aa</Typography>
               <Typography variant="h5" fontWeight={600} align='center'>Inter Semi Bold</Typography>
             </Grid>
-            <Grid item xs={6} md={1.5} marginRight={5}>
+            <Grid item xs={12} md={1.5} marginRight={isMobile ? 0 : 5}>
               <Typography variant="h2" fontWeight={700} align='center'>Aa</Typography>
               <Typography variant="h5" fontWeight={700} align='center'>Inter</Typography>
               <Typography variant="h5" fontWeight={700} align='center'>Bold</Typography>

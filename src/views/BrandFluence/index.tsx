@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import { useTheme, useMediaQuery } from "@mui/material"
+
 
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/sections/Footer"
@@ -12,6 +14,8 @@ import BrandFluenceDiscoverSecond from './BrandFluenceDiscoverSecond'
 
 export default function BrandFluence():JSX.Element {
   const topRef = useRef<any>()
+  const muiTheme = useTheme()
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down("md"))
 
   return <>
     <div style={{ backgroundColor: "#FFFFFF", paddingBottom: 50 }} ref={topRef}>
@@ -23,6 +27,7 @@ export default function BrandFluence():JSX.Element {
         roles={["UI/UX Design", "UX Research", "Information Architecture"]}
         tools={["Figma", "Google Forms"]}
         color={"#FFABAB"}
+        isMobile={isMobile}
       />
     </div>
     <BrandFluenceDiscover />

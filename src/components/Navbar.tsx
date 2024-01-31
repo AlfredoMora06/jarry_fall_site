@@ -122,7 +122,7 @@ export default function Navbar (
             </IconButton>
             <SwipeableDrawer
               PaperProps={{
-                sx: { width: "80%" , backgroundColor: "#FF9DCC"},
+                sx: { width: "50%" , backgroundColor: "#FF9DCC"},
               }}
               open={drawer}
               onClose={toggleDrawer(false)}

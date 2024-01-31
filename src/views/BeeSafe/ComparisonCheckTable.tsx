@@ -75,13 +75,13 @@ const rows = [
   ),
 ];
 
-export default function ComparisonCheckTable() {
+export default function ComparisonCheckTable({isMobile}: {isMobile: boolean}) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
+            <TableCell align="center"><Typography fontWeight={700}>{isMobile ? 'Logo' : ''}</Typography></TableCell>
             <TableCell align="center"><Typography fontWeight={700}>Safest Map Route</Typography></TableCell>
             <TableCell align="center"><Typography fontWeight={700}>Panic Button</Typography></TableCell>
             <TableCell align="center"><Typography fontWeight={700}>Community Live Video Incident</Typography></TableCell>

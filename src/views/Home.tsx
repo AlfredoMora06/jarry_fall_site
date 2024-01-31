@@ -7,7 +7,7 @@ export default function Home():JSX.Element {
       <div
         style={{
           background: `linear-gradient(180deg, #FF9DCC 0%, #FE55A6 32.29%, #FF007A 71.35%, #FFF 100%)`,
-          height: "100vh" 
+          minHeight: "100vh" 
         }}
       >
         <Navbar dark={true} />

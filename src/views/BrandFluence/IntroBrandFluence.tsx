@@ -11,20 +11,21 @@ type ProjectBodyProps = {
   projectGoal: string,
   roles: string[],
   tools: string[],
-  color: string
+  color: string,
+  isMobile: boolean
 }
 
 export default function IntroBrandFluence(
-  {projectTitle, projectLength, projectGoal, roles, tools, color}: ProjectBodyProps
+  {projectTitle, projectLength, projectGoal, roles, tools, color, isMobile}: ProjectBodyProps
 ):JSX.Element {
 
   return (
     <Container>
-      <Box sx={{ flexGrow: 1, paddingTop: 8 }}>
+      <Box sx={{ flexGrow: 1, paddingTop: isMobile ? 0 : 8 }}>
         <Grid container spacing={2}>
           <Fade in={true} timeout={1000}>
             <Grid item xs={12} container justifyContent={"center"}>
-              <Typography variant="h1" style={{ fontWeight: 700 }} fontSize={65}>
+              <Typography variant="h1" style={{ fontWeight: 700 }} fontSize={isMobile ? 52 : 65} align="center">
                 {projectTitle}
               </Typography>
             </Grid>
@@ -65,7 +66,7 @@ export default function IntroBrandFluence(
                 ROLES
               </Typography>
             </Grid>
-            <ul style={{paddingLeft: 0}}>
+            <ul style={{paddingLeft: isMobile ? 15 : 0}}>
               {
                 roles.map((role) => {
                   return (
@@ -84,7 +85,7 @@ export default function IntroBrandFluence(
                 TOOLS
               </Typography>
             </Grid>
-            <ul style={{paddingLeft: 0}}>
+            <ul style={{paddingLeft: isMobile ? 15 : 0}}>
               {
                 tools.map((tool) => {
                   return (
